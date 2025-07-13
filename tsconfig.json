@@ -1,3 +1,10 @@
 {
+    "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src", "src/@types"],
   "extends": "@react-native/typescript-config"
 }

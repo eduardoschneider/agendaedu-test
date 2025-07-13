@@ -1,0 +1,53 @@
+{
+  "professors": [
+    {
+      "id": 1,
+      "email": "professor1@example.com",
+      "password": "senha123",
+      "name": "Professor Um"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Aluno A",
+      "age": 10,
+      "class": "5A"
+    },
+    {
+      "id": 2,
+      "name": "Aluno B",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": 3,
+      "name": "Aluno C",
+      "age": 10,
+      "class": "5B"
+    }
+  ],
+  "observations": [
+    {
+      "id": 1,
+      "professorId": 1,
+      "studentId": 1,
+      "text": "Aluno demonstrou bom comportamento na aula de matemática.",
+      "date": "2025-07-10"
+    },
+    {
+      "id": 2,
+      "professorId": 1,
+      "studentId": 2,
+      "text": "Aluno precisa melhorar a atenção durante as atividades.",
+      "date": "2025-07-11"
+    }
+  ],
+  "favorites": [
+    {
+      "id": 1,
+      "professorId": 1,
+      "studentId": 3
+    }
+  ]
+}
