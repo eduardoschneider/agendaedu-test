@@ -9,58 +9,10 @@
   ],
   "students": [
     {
-      "id": "1",
-      "name": "Aluno 1",
-      "age": 10,
-      "class": "5A"
-    },
-    {
-      "id": "2",
-      "name": "Aluno B",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "3",
-      "name": "Aluno C",
-      "age": 10,
-      "class": "5B"
-    },
-    {
-      "id": "6",
-      "name": "Aluno F",
-      "age": 10,
-      "class": "5B"
-    },
-    {
-      "id": "7",
-      "name": "Aluno G",
-      "age": 12,
-      "class": "5A"
-    },
-    {
-      "id": "8",
-      "name": "Aluno H",
-      "age": 11,
-      "class": "5A"
-    },
-    {
       "id": "9",
       "name": "Aluno I",
       "age": 10,
       "class": "5B"
-    },
-    {
-      "id": "10",
-      "name": "Aluno J",
-      "age": 12,
-      "class": "5B"
-    },
-    {
-      "id": "11",
-      "name": "Aluno K",
-      "age": 11,
-      "class": "5A"
     },
     {
       "id": "12",
@@ -75,12 +27,6 @@
       "class": "5B"
     },
     {
-      "id": "14",
-      "name": "Aluno N",
-      "age": 11,
-      "class": "5A"
-    },
-    {
       "id": "15",
       "name": "Aluno O",
       "age": 10,
@@ -93,28 +39,10 @@
       "class": "5A"
     },
     {
-      "id": "17",
-      "name": "Aluno Q",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "18",
-      "name": "Aluno R",
-      "age": 10,
-      "class": "5B"
-    },
-    {
       "id": "19",
       "name": "Aluno S",
       "age": 12,
       "class": "5B"
-    },
-    {
-      "id": "20",
-      "name": "Aluno T",
-      "age": 11,
-      "class": "5A"
     },
     {
       "id": "21",
@@ -123,22 +51,10 @@
       "class": "5A"
     },
     {
-      "id": "22",
-      "name": "Aluno V",
-      "age": 12,
-      "class": "5B"
-    },
-    {
       "id": "23",
       "name": "Aluno W",
       "age": 11,
       "class": "5A"
-    },
-    {
-      "id": "24",
-      "name": "Aluno X",
-      "age": 10,
-      "class": "5B"
     },
     {
       "id": "25",
@@ -189,12 +105,6 @@
       "class": "5A"
     },
     {
-      "id": "33",
-      "name": "Aluno AG",
-      "age": 10,
-      "class": "5B"
-    },
-    {
       "id": "9662",
       "name": "Aluno teste",
       "age": 16,
@@ -229,6 +139,20 @@
       "studentId": 1,
       "text": "Aluno mostrou progresso na leitura.",
       "date": "2025-07-13"
+    },
+    {
+      "id": "55de",
+      "professorId": 1,
+      "studentId": null,
+      "text": "Teste",
+      "date": "2025-07-14T07:10:59.492Z"
+    },
+    {
+      "id": "0d00",
+      "professorId": 1,
+      "studentId": null,
+      "text": "Teste22",
+      "date": "2025-07-14T07:11:07.300Z"
     }
   ],
   "favorites": [

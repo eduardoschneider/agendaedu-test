@@ -10,8 +10,11 @@ export const CardContainer = styled.TouchableOpacity`
   shadow-offset: 0px 2px;
   shadow-opacity: 0.1;
   shadow-radius: 4px;
-
+    border: 3px solid #8332b9;
   elevation: 3;
+
+  display: flex;
+  flex-direction: row;
 `;
 
 export const DeleteButton = styled.TouchableOpacity`
@@ -20,6 +23,7 @@ export const DeleteButton = styled.TouchableOpacity`
   align-items: flex-end;
   padding: 20px;
   height: 90%;
+  background-color: green;
   margin-vertical: 8px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;

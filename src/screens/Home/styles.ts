@@ -41,7 +41,7 @@ export const BadgeContainer = styled.View`
 `;
 
 export const Badge = styled.View`
-    width: 120px;
+    width: 100%;
     height: 100px;
     border: 3px solid #8332b9;
     justify-content: center;
@@ -53,11 +53,18 @@ export const Badge = styled.View`
 export const Counter = styled.Text`
     font-size: 32px;
     font-weight: bold;
-    color: #8332b9;
+    padding-top: 20px;
+    color: black;
 `;
 
 export const CounterLabel = styled.Text`
     font-size: 12px;
     font-weight: bold;
-    color: black;
+    background-color: #8332b9;
+    position: absolute;
+    padding: 5px;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    color: white;
 `;

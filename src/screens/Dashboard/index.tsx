@@ -12,10 +12,10 @@ export default function DashboardTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: '#e9d4ff', elevation: 10, borderTopWidth: 0.5, borderTopColor: '#8332b9', paddingTop: 5 },
+        tabBarStyle: { backgroundColor: '#dec4fcff', elevation: 0, borderTopWidth: 0, borderTopColor: '#e9d4ff', paddingBottom: 0 },
         tabBarActiveTintColor: '#8332b9',
-        tabBarActiveBackgroundColor: '#d9c0f3ff',
-        tabBarInactiveTintColor: '#8332b9',
+        tabBarActiveBackgroundColor: '#e9d4ff',
+        tabBarInactiveTintColor: '#8332b99d',
         tabBarIcon: ({ color, size }) => {
           let iconName:any = '';
           

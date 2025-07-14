@@ -14,6 +14,7 @@ import {
   Cadastro,
   CadastroText,
   ErrorMessage,
+  Subtitle,
 } from './styles';
 
 export default function Login({
@@ -48,7 +49,8 @@ export default function Login({
       >
         <Logo></Logo>
 
-        <Title>Bem-vindo!</Title>
+        <Title>Bem-vindo</Title>
+        <Subtitle>Faça o login para continuar</Subtitle>
 
         <Input
           placeholder="E-mail"

@@ -53,9 +53,6 @@ export default function ObservacoesScreen({navigation}: {navigation: StackScreen
         onEndReachedThreshold={0.5}
         ListFooterComponent={loadingMore ? <ActivityIndicator /> : null}
       />
-      <AddButton>
-        <AddButtonText> + </AddButtonText>
-      </AddButton>
     </Container>
   );
 }

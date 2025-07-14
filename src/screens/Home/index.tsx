@@ -14,12 +14,12 @@ export default function Home() {
 
       <BadgeContainer>
         <Badge>
+          <CounterLabel>OBSERVAÇÕES REALIZADAS</CounterLabel>
           <Counter>5</Counter>
-          <CounterLabel>OBSERVAÇÕES</CounterLabel>
         </Badge>
         <Badge>
+          <CounterLabel>ALUNOS FAVORITOS</CounterLabel>
           <Counter>5</Counter>
-          <CounterLabel>FAVORITOS</CounterLabel>
         </Badge>
       </BadgeContainer>
       

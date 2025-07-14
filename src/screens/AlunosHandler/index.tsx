@@ -7,6 +7,8 @@ import {
   Button,
   ButtonText,
   SaveButton,
+  AddButton,
+  AddButtonText,
 } from './styles';
 import { Student, Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
@@ -61,6 +63,22 @@ export default function AlunosHandler({
       Alert.alert('Erro', 'Não foi possível remover a observação.');
     }
   };
+
+  const addObservation = () => {
+    navigation.navigate('ObservacoesHandler', {
+      studentId: id,
+      onSave: (text: string) => {
+        const newObs: Observation = {
+          id: Date.now(), // Simulating ID generation
+          studentId: id || 0,
+          professorId: 1, // Assuming a static professor ID for simplicity
+          text,
+          date: new Date().toISOString(),
+        };
+        setObservationList(prev => [...prev, newObs]);
+      },
+    });
+  }
 
   const editObservation = (id: number) => {
     navigation.navigate('ObservacoesHandler', {
@@ -120,8 +138,12 @@ export default function AlunosHandler({
         placeholder="Digite a turma"
       />
 
+      <AddButton onPress={() => addObservation()}>
+        <AddButtonText> + Adicionar observação </AddButtonText>
+      </AddButton>
+
       <FlatList
-        data={observationList}
+        data={observationList.reverse()}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <ObservationCard

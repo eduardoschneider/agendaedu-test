@@ -23,7 +23,15 @@ export const Title = styled.Text`
   font-size: 24px;
   font-weight: 600;
   color: #000;
+  margin-bottom: 2px;
+  width: 100%;
+`;
+
+export const Subtitle = styled.Text`
+  font-size: 19px;
+  color: #000;
   margin-bottom: 24px;
+  width: 100%;
 `;
 
 export const Input = styled.TextInput`
@@ -34,7 +42,7 @@ export const Input = styled.TextInput`
   border-bottom-color: #0000001a;
   padding: 0 10px;
   margin-bottom: 16px;
-  color: #fff;
+  color: #000;
   font-size: 16px;
 `;
 

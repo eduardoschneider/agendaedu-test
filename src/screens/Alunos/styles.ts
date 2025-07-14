@@ -2,8 +2,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 36px 16px;
-  background-color: #f5f5f5;
+  padding: 46px 16px 0px 16px;
+  background-color: #e9d4ff;
 `;
 
 export const Message = styled.Text`
@@ -14,8 +14,8 @@ export const Message = styled.Text`
 
 export const AddButton = styled.TouchableOpacity`
   background-color: #4CAF50;
-  width: 64px;
-  height: 64px;
+  width: 44px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ export const AddButton = styled.TouchableOpacity`
   align-items: center;
   margin-top: 16px;
   position: absolute;
-  bottom: 20px;
+  top: 40px;
   right: 20px;
 `;
 
@@ -31,4 +31,16 @@ export const AddButtonText = styled.Text`
   color: white;
   font-size: 24px;
   font-weight: bold;
+`;
+
+export const Title = styled.Text`
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+`;
+
+export const Subtitle = styled.Text`
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 12px;
 `;
