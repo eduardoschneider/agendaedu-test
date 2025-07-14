@@ -138,10 +138,11 @@ export default function AlunosHandler({
         placeholder="Digite a turma"
       />
 
+      {id && 
       <AddButton onPress={() => addObservation()}>
         <AddButtonText> + Adicionar observação </AddButtonText>
       </AddButton>
-
+      }
       <FlatList
         data={observationList.reverse()}
         keyExtractor={item => item.id.toString()}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@/components/Card';
 import { Observation } from '@/types/types';
-import { Title, Info } from './styles';
+import { Title, Info, Container } from './styles';
 import { View } from 'react-native';
 
 interface ObservationCardProps {
@@ -13,10 +13,10 @@ interface ObservationCardProps {
 export default function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
   return (
     <Card onPress={onPress} onDelete={onDelete}>
-      <View>
+      <Container>
         <Title>{obs?.text}</Title>
-        <Info> {obs?.date}</Info>
-      </View>
+        <Info>Observação registrada no dia {obs?.date}</Info>
+      </Container>
     </Card>
   );
 }

@@ -9,106 +9,124 @@
   ],
   "students": [
     {
+      "id": "0",
+      "name": "Alice Silva",
+      "age": 12,
+      "class": "2A"
+    },
+    {
+      "id": "1",
+      "name": "Bruno Costae",
+      "age": 13,
+      "class": "2B"
+    },
+    {
+      "id": "2",
+      "name": "Carla Oliveira",
+      "age": 14,
+      "class": "2C"
+    },
+    {
+      "id": "3",
+      "name": "Daniel Pereira",
+      "age": 15,
+      "class": "3A"
+    },
+    {
+      "id": "4",
+      "name": "Eduarda Santos",
+      "age": 16,
+      "class": "3B"
+    },
+    {
+      "id": "5",
+      "name": "Felipe Rodrigues",
+      "age": 17,
+      "class": "3C"
+    },
+    {
+      "id": "6",
+      "name": "Gabriela Almeida",
+      "age": 12,
+      "class": "4A"
+    },
+    {
+      "id": "7",
+      "name": "Henrique Lima",
+      "age": 13,
+      "class": "4B"
+    },
+    {
+      "id": "8",
+      "name": "Isabela Ferreira",
+      "age": 14,
+      "class": "4C"
+    },
+    {
       "id": "9",
-      "name": "Aluno I",
-      "age": 10,
+      "name": "João Nascimento",
+      "age": 15,
+      "class": "5A"
+    },
+    {
+      "id": "10",
+      "name": "Karina Machado",
+      "age": 16,
       "class": "5B"
+    },
+    {
+      "id": "11",
+      "name": "Lucas Moreira",
+      "age": 17,
+      "class": "5C"
     },
     {
       "id": "12",
-      "name": "Aluno L",
-      "age": 10,
-      "class": "5A"
+      "name": "Mariana Gomes",
+      "age": 12,
+      "class": "2A"
     },
     {
       "id": "13",
-      "name": "Aluno M",
-      "age": 12,
-      "class": "5B"
+      "name": "Nicolas Teixeira",
+      "age": 13,
+      "class": "2B"
+    },
+    {
+      "id": "14",
+      "name": "Olivia Araújo",
+      "age": 14,
+      "class": "2C"
     },
     {
       "id": "15",
-      "name": "Aluno O",
-      "age": 10,
-      "class": "5B"
+      "name": "Paulo Fernandes",
+      "age": 15,
+      "class": "3A"
     },
     {
       "id": "16",
-      "name": "Aluno P",
+      "name": "Quésia Alves",
+      "age": 16,
+      "class": "3B"
+    },
+    {
+      "id": "17",
+      "name": "Rafael Carvalho",
+      "age": 17,
+      "class": "3C"
+    },
+    {
+      "id": "18",
+      "name": "Sofia Rocha",
       "age": 12,
-      "class": "5A"
+      "class": "4A"
     },
     {
       "id": "19",
-      "name": "Aluno S",
-      "age": 12,
-      "class": "5B"
-    },
-    {
-      "id": "21",
-      "name": "Aluno U",
-      "age": 10,
-      "class": "5A"
-    },
-    {
-      "id": "23",
-      "name": "Aluno W",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "25",
-      "name": "Aluno Y",
-      "age": 12,
-      "class": "5A"
-    },
-    {
-      "id": "26",
-      "name": "Aluno Z",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "27",
-      "name": "Aluno AA",
-      "age": 10,
-      "class": "5B"
-    },
-    {
-      "id": "28",
-      "name": "Aluno AB",
-      "age": 12,
-      "class": "5B"
-    },
-    {
-      "id": "29",
-      "name": "Aluno AC",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "30",
-      "name": "Aluno AD",
-      "age": 10,
-      "class": "5A"
-    },
-    {
-      "id": "31",
-      "name": "Aluno AE",
-      "age": 12,
-      "class": "5B"
-    },
-    {
-      "id": "32",
-      "name": "Aluno AF",
-      "age": 11,
-      "class": "5A"
-    },
-    {
-      "id": "9662",
-      "name": "Aluno teste",
-      "age": 16,
-      "class": "Turma T3"
+      "name": "Thiago Castro",
+      "age": 13,
+      "class": "4B"
     }
   ],
   "observations": [
@@ -153,6 +171,13 @@
       "studentId": null,
       "text": "Teste22",
       "date": "2025-07-14T07:11:07.300Z"
+    },
+    {
+      "id": "46c8",
+      "professorId": 1,
+      "studentId": "1",
+      "text": "Tatatata",
+      "date": "2025-07-14T07:54:56.012Z"
     }
   ],
   "favorites": [

@@ -7,6 +7,18 @@ export const Title = styled.Text`
 `;
 
 export const Info = styled.Text`
-  font-size: 14px;
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+  font-weight: bold;
+  right: 10px;
   color: #1a00afff;
+`;
+
+export const Container = styled.View`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  height: 100%;
 `;
