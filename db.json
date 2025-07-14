@@ -1,7 +1,7 @@
 {
   "professors": [
     {
-      "id": 1,
+      "id": "1",
       "email": "professor1@example.com",
       "password": "senha123",
       "name": "Professor Um"
@@ -9,43 +9,264 @@
   ],
   "students": [
     {
-      "id": 1,
-      "name": "Aluno A",
+      "id": "1",
+      "name": "Aluno 1",
       "age": 10,
       "class": "5A"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Aluno B",
       "age": 11,
       "class": "5A"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Aluno C",
       "age": 10,
       "class": "5B"
-    }
-  ],
-  "observations": [
-    {
-      "id": 1,
-      "professorId": 1,
-      "studentId": 1,
-      "text": "Aluno demonstrou bom comportamento na aula de matemática.",
-      "date": "2025-07-10"
     },
     {
-      "id": 2,
-      "professorId": 1,
-      "studentId": 2,
-      "text": "Aluno precisa melhorar a atenção durante as atividades.",
-      "date": "2025-07-11"
+      "id": "4",
+      "name": "Aluno D",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "5",
+      "name": "Aluno E",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "6",
+      "name": "Aluno F",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "7",
+      "name": "Aluno G",
+      "age": 12,
+      "class": "5A"
+    },
+    {
+      "id": "8",
+      "name": "Aluno H",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "9",
+      "name": "Aluno I",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "10",
+      "name": "Aluno J",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "11",
+      "name": "Aluno K",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "12",
+      "name": "Aluno L",
+      "age": 10,
+      "class": "5A"
+    },
+    {
+      "id": "13",
+      "name": "Aluno M",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "14",
+      "name": "Aluno N",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "15",
+      "name": "Aluno O",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "16",
+      "name": "Aluno P",
+      "age": 12,
+      "class": "5A"
+    },
+    {
+      "id": "17",
+      "name": "Aluno Q",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "18",
+      "name": "Aluno R",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "19",
+      "name": "Aluno S",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "20",
+      "name": "Aluno T",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "21",
+      "name": "Aluno U",
+      "age": 10,
+      "class": "5A"
+    },
+    {
+      "id": "22",
+      "name": "Aluno V",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "23",
+      "name": "Aluno W",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "24",
+      "name": "Aluno X",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "25",
+      "name": "Aluno Y",
+      "age": 12,
+      "class": "5A"
+    },
+    {
+      "id": "26",
+      "name": "Aluno Z",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "27",
+      "name": "Aluno AA",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "28",
+      "name": "Aluno AB",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "29",
+      "name": "Aluno AC",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "30",
+      "name": "Aluno AD",
+      "age": 10,
+      "class": "5A"
+    },
+    {
+      "id": "31",
+      "name": "Aluno AE",
+      "age": 12,
+      "class": "5B"
+    },
+    {
+      "id": "32",
+      "name": "Aluno AF",
+      "age": 11,
+      "class": "5A"
+    },
+    {
+      "id": "33",
+      "name": "Aluno AG",
+      "age": 10,
+      "class": "5B"
+    },
+    {
+      "id": "9662",
+      "name": "Aluno teste",
+      "age": 16,
+      "class": "Turma T3"
     }
   ],
+"observations": [
+  {
+    "id": "1",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno demonstrou bom comportamento na aula de matemática.",
+    "date": "2025-07-10"
+  },
+  {
+    "id": "2",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno precisa melhorar a atenção durante as atividades.",
+    "date": "2025-07-11"
+  },
+  {
+    "id": "3",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno participou ativamente do trabalho em grupo.",
+    "date": "2025-07-12"
+  },
+  {
+    "id": "4",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno mostrou progresso na leitura.",
+    "date": "2025-07-13"
+  },
+  {
+    "id": "5",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno entregou o dever de casa completo e bem feito.",
+    "date": "2025-07-14"
+  },
+  {
+    "id": "6",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno apresentou dificuldades em matemática.",
+    "date": "2025-07-15"
+  },
+  {
+    "id": "7",
+    "professorId": 1,
+    "studentId": 1,
+    "text": "Aluno ajudou os colegas durante a atividade.",
+    "date": "2025-07-16"
+  }
+],
   "favorites": [
     {
-      "id": 1,
+      "id": "1",
       "professorId": 1,
       "studentId": 3
     }

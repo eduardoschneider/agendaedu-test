@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Text } from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
 import { Professor } from '@/types/types';
-import * as Sentry from '@sentry/react-native';
 import { useRequest } from '@/hooks/useRequest';
 import {
   Container,
@@ -22,12 +21,12 @@ export default function Login({
 }: {
   navigation: StackScreenNavigationProp<'Login'>;
 }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('professor1@example.com');
+  const [password, setPassword] = useState('senha123');
 
   const [error, _] = useState('');
 
-  const { fetchAll, fetchByCredentials } = useRequest<Professor>('professors');
+  const { fetchByCredentials } = useRequest<Professor>('professors');
 
   const handleLogin = async () => {
     console.log(email);
@@ -72,11 +71,7 @@ export default function Login({
           <ButtonText>Login</ButtonText>
         </Button>
 
-        <Cadastro
-          onPress={() => {
-            Sentry.captureException(new Error('First error'));
-          }}
-        >
+        <Cadastro>
           <Text>Não tem cadastro ainda? </Text>
           <CadastroText>Clique aqui</CadastroText>
         </Cadastro>

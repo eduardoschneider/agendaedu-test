@@ -4,10 +4,7 @@ import { View, Text } from 'react-native';
 
 export default function Home() {
   return (
-    <Container
-      source={require('@/assets/dashboard-background.jpg')}
-      resizeMode="cover"
-    >
+    <Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
       <Profile
         source={require('@/assets/profile-pic.png')}
         resizeMode="cover"

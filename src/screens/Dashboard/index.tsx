@@ -14,6 +14,7 @@ export default function DashboardTabs() {
         headerShown: false,
         tabBarStyle: { backgroundColor: '#e9d4ff', elevation: 10, borderTopWidth: 0.5, borderTopColor: '#8332b9', paddingTop: 5 },
         tabBarActiveTintColor: '#8332b9',
+        tabBarActiveBackgroundColor: '#d9c0f3ff',
         tabBarInactiveTintColor: '#8332b9',
         tabBarIcon: ({ color, size }) => {
           let iconName:any = '';
