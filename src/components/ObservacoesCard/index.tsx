@@ -5,11 +5,13 @@ import { Title, Info } from './styles';
 
 interface ObservationCardProps {
   obs: Observation;
+  onPress?: () => void;
+  onDelete?: () => void;
 }
 
-export default function ObservationCard({ obs }: ObservationCardProps) {
+export default function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
   return (
-    <Card>
+    <Card onPress={onPress} onDelete={onDelete}>
       <Title>{obs?.text}</Title>
       <Info>{obs?.date}</Info>
     </Card>

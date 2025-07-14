@@ -13,3 +13,20 @@ export const CardContainer = styled.TouchableOpacity`
 
   elevation: 3;
 `;
+
+export const DeleteButton = styled.TouchableOpacity`
+  background-color: transparent;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+  height: 90%;
+  margin-vertical: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+export const DeleteText = styled.Text`
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+`;

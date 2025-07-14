@@ -11,6 +11,7 @@ export default function StudentsScreen({navigation}: {navigation: StackScreenNav
     fetchAll,
     items: students,
     loading,
+    remove,
     loadMore,
     loadingMore,
     error,
@@ -24,9 +25,13 @@ export default function StudentsScreen({navigation}: {navigation: StackScreenNav
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await fetchAll(); // sua função do hook
+    await fetchAll();
     setRefreshing(false);
   };
+
+  const handleAluno = (item: number) => {
+    navigation.navigate('AlunosHandler', {id: item})
+  }
 
   return (
     <Container>
@@ -36,7 +41,7 @@ export default function StudentsScreen({navigation}: {navigation: StackScreenNav
       <FlatList
         data={students}
         keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => <AlunoCard aluno={item} onPress={() => navigation.navigate('AlunosHandler', {id: item.id})}/>}
+        renderItem={({ item }) => <AlunoCard aluno={item} onPress={() => handleAluno(item.id)} onDelete={() => remove(item.id)}/>}
         contentContainerStyle={{ paddingBottom: 16 }}
         initialNumToRender={10}
         maxToRenderPerBatch={10}

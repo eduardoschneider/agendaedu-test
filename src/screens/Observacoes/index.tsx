@@ -4,12 +4,14 @@ import ObservationCard from '@/components/ObservacoesCard';
 import { useRequest } from '@/hooks/useRequest';
 import { Observation } from '@/types/types';
 import { AddButton, AddButtonText, Container, Message } from './styles';
+import { StackScreenNavigationProp } from '@/navigation';
 
-export default function ObservacoesScreen() {
+export default function ObservacoesScreen({navigation}: {navigation: StackScreenNavigationProp<'Dashboard'>}) {
   const {
     fetchAll,
-    items: students,
+    items: observations,
     loading,
+    remove,
     loadMore,
     loadingMore,
     error,
@@ -23,9 +25,13 @@ export default function ObservacoesScreen() {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await fetchAll(); // sua função do hook
+    await fetchAll();
     setRefreshing(false);
   };
+
+  const goToStudent = (studentId: number) => {
+    navigation.navigate('AlunosHandler', {id: studentId});
+  }
 
   return (
     <Container>
@@ -33,9 +39,9 @@ export default function ObservacoesScreen() {
       {error && <Message>{error}</Message>}
 
       <FlatList
-        data={students}
+        data={observations}
         keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => <ObservationCard obs={item} />}
+        renderItem={({ item }) => <ObservationCard obs={item} onPress={() => goToStudent(item.studentId)} onDelete={() => remove(item.id)}/>}
         contentContainerStyle={{ paddingBottom: 16 }}
         initialNumToRender={10}
         maxToRenderPerBatch={10}

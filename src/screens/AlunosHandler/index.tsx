@@ -1,29 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Alert, FlatList } from 'react-native';
-import { Container, Input, Label, Button, ButtonText, SaveButton } from './styles';
+import {
+  Container,
+  Input,
+  Label,
+  Button,
+  ButtonText,
+  SaveButton,
+} from './styles';
 import { Student, Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
 import { StackScreenNavigationRouteProps } from '@/navigation';
 import ObservationCard from '@/components/ObservacoesCard';
 
-export default function AlunosHandler({ navigation, route }: StackScreenNavigationRouteProps<'AlunosHandler'>) {
-
+export default function AlunosHandler({
+  navigation,
+  route,
+}: StackScreenNavigationRouteProps<'AlunosHandler'>) {
   const { id } = route.params || {};
 
   const { fetchById, update, add } = useRequest<Student>('students');
-  const { fetchByKey } = useRequest<Observation>('observations');
-    
+  const { fetchByKey, remove } = useRequest<Observation>('observations');
+
   const [form, setForm] = useState<Omit<Student, 'id'>>({
     name: '',
     age: 0,
-    class: ''
+    class: '',
   });
   const [observationList, setObservationList] = useState<Observation[]>([]);
 
   const handleChange = (field: keyof Omit<Student, 'id'>, value: string) => {
     setForm(prev => ({
       ...prev,
-      [field]: field === 'age' ? Number(value) : value
+      [field]: field === 'age' ? Number(value) : value,
     }));
   };
 
@@ -34,32 +43,56 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
     }
 
     if (id) {
-        await update(id, form);
+      await update(id, form);
     } else {
-        await add(form);
+      await add(form);
     }
 
     navigation?.goBack();
     Alert.alert('Sucesso', 'Aluno salvo com sucesso!');
   };
 
+  const handleDeleteObservation = (id: number) => {
+    try {
+      remove(id);
+      setObservationList(prev => prev.filter(obs => obs.id !== id));
+      Alert.alert('Sucesso', 'Observação removida com sucesso!');
+    } catch (error) {
+      Alert.alert('Erro', 'Não foi possível remover a observação.');
+    }
+  };
+
+  const editObservation = (id: number) => {
+    navigation.navigate('ObservacoesHandler', {
+      id,
+      studentId: id,
+      onSave: (text, id) => updateObservationList(text, id),
+    });
+  };
+
+  function updateObservationList(newText: string, id?: number) {
+    setObservationList(prev =>
+      prev.map(obs => (obs.id === id ? { ...obs, text: newText } : obs)),
+    );
+  }
+
   useEffect(() => {
     if (id) {
-        fetchById(id).then(student => {
-            if (student) {
-            setForm({
-                name: student.name,
-                age: student.age,
-                class: student.class
-            });
-            }
-        });
+      fetchById(id).then(student => {
+        if (student) {
+          setForm({
+            name: student.name,
+            age: student.age,
+            class: student.class,
+          });
+        }
+      });
 
-        fetchByKey(id, 'studentId').then(obs => {
-            if (Array.isArray(obs) && obs) {
-                setObservationList(obs);
-            }
-        });
+      fetchByKey(id, 'studentId').then(obs => {
+        if (Array.isArray(obs) && obs) {
+          setObservationList(obs);
+        }
+      });
     }
   }, []);
 
@@ -87,13 +120,17 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
         placeholder="Digite a turma"
       />
 
-    <FlatList
+      <FlatList
         data={observationList}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
-        <ObservationCard obs={item} />
+          <ObservationCard
+            obs={item}
+            onPress={() => editObservation(item.id)}
+            onDelete={() => handleDeleteObservation(item.id)}
+          />
         )}
-    />
+      />
 
       <SaveButton onPress={handleSubmit}>
         <ButtonText>Salvar</ButtonText>

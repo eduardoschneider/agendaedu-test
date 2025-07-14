@@ -8,11 +8,13 @@ import { RouteProp } from '@react-navigation/native';
 import Login from '@/screens/Login';
 import Dashboard from '@/screens/Dashboard';
 import AlunosHandler from '@/screens/AlunosHandler';
+import ObservacoesHandler from '@/screens/ObservacoesHandler';
 
 type RootStackParamList = {
   Login: undefined;
   Dashboard: undefined;
   AlunosHandler?: { id?: number };
+  ObservacoesHandler?: { id?: number; studentId?: number, onSave?: (text:string, id?: number) => void };
 };
 
 export type StackScreenNavigationProp<T extends keyof RootStackParamList> =
@@ -37,6 +39,7 @@ export default function Routes() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="AlunosHandler" component={AlunosHandler} />
+        <Stack.Screen name="ObservacoesHandler" component={ObservacoesHandler} />
       </Stack.Navigator>
     </NavigationContainer>
   );
