@@ -15,9 +15,9 @@ interface AlunoCardProps {
  function AlunoCard({ aluno, onPress, onDelete, isFavorite, toggleFavorite }: AlunoCardProps) {
 
   return (
-    <Card onPress={onPress} onDelete={onDelete}>
-      <ImageContainer style={{ backgroundColor: getRandomColor(aluno.name) }}>
-        <AlunoImage source={require('@/assets/student-icon.png')}/>
+    <Card onPress={onPress} onDelete={onDelete} style={{ backgroundColor: getRandomColor(aluno.name) }}>
+      <ImageContainer>
+        <AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + (isNaN(aluno.id) ? 1:aluno.id) + ".jpg" }}/>
       </ImageContainer>
 
       <FavoriteIconContainer onPress={(e) => {

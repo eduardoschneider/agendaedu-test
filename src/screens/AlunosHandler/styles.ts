@@ -1,8 +1,9 @@
+import { Picker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  padding: 20px;
+  padding: 35px 25px;
   background-color: #e9d4ff;
   height: 90%;
   overflow: hidden;
@@ -73,3 +74,7 @@ export const AddButtonText = styled.Text`
   font-size: 17px;
   font-weight: bold;
 `;
+
+export const CustomPicker = styled(Picker)`
+  background-color: white;
+  `

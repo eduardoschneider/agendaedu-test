@@ -19,6 +19,6 @@ export const Container = styled.View`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
   height: 100%;
 `;

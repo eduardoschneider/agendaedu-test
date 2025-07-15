@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Title = styled.Text`
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 4px;
 `;
 
@@ -14,6 +14,7 @@ export const Info = styled.Text`
 
 export const ImageContainer = styled.View`
   height: 126px;
+  width: 120px;
   overflow: hidden;
   background-color: red;
   margin-right: 16px;
@@ -22,12 +23,12 @@ export const ImageContainer = styled.View`
   align-items: center;
   padding: 0px 10px;
   border-radius:5px 0px 0px 5px;
+  position: relative;
 `;
 
 export const AlunoImage = styled.Image`
-  width: 70px;
-  height: 70px;
-  border-radius: 25px;
+  width: 200%;
+  height: 100%;
 `;
 
 export const AlunoContainer = styled.View`
@@ -37,8 +38,8 @@ export const AlunoContainer = styled.View`
 `;
 
 export const FavoriteIcon = styled.Image`
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: -2px;
   right: 10px;
@@ -52,6 +53,6 @@ export const FavoriteIconContainer = styled.TouchableOpacity`
   position: absolute;
   padding: 30px;
   top: -2px;
-  right: 10px;
+  right: 0px;
   z-index: 1;
 `;

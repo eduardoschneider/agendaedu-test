@@ -31,11 +31,9 @@ export default function StudentsScreen({
   const {
     fetchAll,
     items: students,
-    loading,
     remove,
     loadMore,
     loadingMore,
-    error,
   } = useRequest<Student>('students');
 
   const [refreshing, setRefreshing] = useState(false);
@@ -77,7 +75,6 @@ export default function StudentsScreen({
       const filtered = students.filter(student =>
         student.name.toLowerCase().includes(searchTerm.toLowerCase()),
       );
-      console.log(filtered);
       setFilteredList(filtered);
     }
   };
@@ -112,13 +109,11 @@ export default function StudentsScreen({
       source={require('@/assets/dashboard-background.jpg')}
       resizeMode="cover"
     >
-      {loading && <ActivityIndicator size="large" color="purple" />}
-      {error && <Message>{error}</Message>}
 
       <Title> Lista de Alunos</Title>
       <Subtitle> Alunos registrados na escola </Subtitle>
       <TextInput
-        placeholder="Digite o nome do aluno..."
+        placeholder="Pesquisar aluno por nome..."
         keyboardType="default"
         autoCapitalize="none"
         value={searchTerm}

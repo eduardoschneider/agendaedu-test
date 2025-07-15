@@ -48,13 +48,15 @@ const professorSlice = createSlice({
     },
     logout(state) {
       state.data = null;
+      state.loading = false;
+      state.error = null;
     },
   },
 });
 
 export const {
   loginRequest, loginSuccess, loginFailure,
-  toggleFavoriteRequest, toggleFavoriteSuccess, toggleFavoriteFailure
+  toggleFavoriteRequest, toggleFavoriteSuccess, toggleFavoriteFailure, logout
 } = professorSlice.actions
 
 export default professorSlice.reducer;

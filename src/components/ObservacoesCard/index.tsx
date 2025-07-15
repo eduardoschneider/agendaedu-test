@@ -10,12 +10,28 @@ interface ObservationCardProps {
   onDelete?: () => void;
 }
 
-export default function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
+export default function ObservationCard({
+  obs,
+  onPress,
+  onDelete,
+}: ObservationCardProps) {
+
+  const customStyle = {backgroundColor: 'white', borderColor: '#00000011'};
+
   return (
-    <Card onPress={onPress} onDelete={onDelete}>
+    <Card onPress={onPress} onDelete={onDelete} style={customStyle}>
       <Container>
         <Title>{obs?.text}</Title>
-        <Info>Observação registrada no dia {obs?.date}</Info>
+        <Info>
+          Observação registrada no dia{' '}
+          {obs?.date
+            ? new Date(obs.date).toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+              })
+            : 'data desconhecida'}
+        </Info>
       </Container>
     </Card>
   );

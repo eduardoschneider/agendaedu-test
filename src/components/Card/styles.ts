@@ -7,7 +7,6 @@ export const CardContainer = styled.TouchableOpacity`
   border: 2px solid #8332b9;
   display: flex;
   flex-direction: row;
-  height: 130px;
 `;
 
 export const DeleteButton = styled.TouchableOpacity`

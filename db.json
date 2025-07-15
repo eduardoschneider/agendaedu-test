@@ -53,7 +53,12 @@
       "password": "123456",
       "name": "Eduardo",
       "bio": "Dev do projeto",
-      "favorites": []
+      "favorites": [
+        "9",
+        "8",
+        "6",
+        "14"
+      ]
     },
     {
       "id": "6",
@@ -83,7 +88,7 @@
   "students": [
     {
       "id": "3",
-      "name": "Daniel Pereiraa",
+      "name": "Daniel Pereira",
       "age": 15,
       "class": "3A"
     },
@@ -182,6 +187,24 @@
       "name": "Jsshjzzjz",
       "age": 15,
       "class": "G5"
+    },
+    {
+      "id": "78a0",
+      "name": "Jddhshjd",
+      "age": 868989,
+      "class": "Zbxbbd"
+    },
+    {
+      "id": "2b25",
+      "name": "Cjvjv",
+      "age": 99,
+      "class": "2A"
+    },
+    {
+      "id": "c264",
+      "name": "Yyy",
+      "age": 3,
+      "class": "1B"
     }
   ],
   "observations": [
@@ -240,6 +263,13 @@
       "studentId": "6",
       "text": "Teste2",
       "date": "2025-07-15T07:12:59.598Z"
+    },
+    {
+      "id": "8fd2",
+      "professorId": 1,
+      "studentId": "6",
+      "text": "Teste twtetetet\n",
+      "date": "2025-07-15T09:41:20.133Z"
     }
   ]
 }

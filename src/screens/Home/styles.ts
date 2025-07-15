@@ -74,3 +74,15 @@ export const CounterLabel = styled.Text`
     width: 100%;
     color: white;
 `;
+
+export const SairButton = styled.TouchableOpacity`
+    position: absolute;
+    top: 50px;
+    left: 20px;
+`;
+
+export const SairLabel = styled.Text`
+    color: red;
+    font-weight:bold;
+    font-size:13px;
+`;

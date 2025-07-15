@@ -8,12 +8,14 @@ import {
   SaveButton,
   AddButton,
   AddButtonText,
+  CustomPicker,
 } from './styles';
 import { Student, Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
 import { StackScreenNavigationRouteProps } from '@/navigation';
 import ObservationCard from '@/components/ObservacoesCard';
 import { useFocusEffect } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
 
 export default function AlunosHandler({
   navigation,
@@ -109,20 +111,29 @@ export default function AlunosHandler({
         onChangeText={text => handleChange('age', text)}
         keyboardType="numeric"
         placeholder="Digite a idade"
+        maxLength={2}
       />
 
       <Label>Turma</Label>
-      <Input
-        value={form.class}
-        onChangeText={text => handleChange('class', text)}
-        placeholder="Digite a turma"
-      />
+      <CustomPicker selectedValue={form.class}
+        onValueChange={(itemValue, itemIndex) =>
+          handleChange('class', itemValue as string)
+        }>
+        <Picker.Item label="1A" value="1A" />
+        <Picker.Item label="2A" value="2A" />
+        <Picker.Item label="1B" value="1B" />
+        <Picker.Item label="2B" value="2B" />
+        <Picker.Item label="1C" value="1C" />
+        <Picker.Item label="2C" value="2C" />
+      </CustomPicker>
 
       {id && (
         <AddButton onPress={() => addObservation()}>
           <AddButtonText> + Adicionar observação </AddButtonText>
         </AddButton>
       )}
+
+      {id &&
       <FlatList
         data={observationList.reverse()}
         keyExtractor={item => item.id.toString()}
@@ -134,6 +145,7 @@ export default function AlunosHandler({
           />
         )}
       />
+      }
 
       <SaveButton onPress={handleSubmit}>
         <ButtonText>Salvar</ButtonText>
