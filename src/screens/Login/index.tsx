@@ -25,8 +25,8 @@ export default function Login({
 }: {
   navigation: StackScreenNavigationProp<'Login'>;
 }) {
-  const [email, setEmail] = useState('professor1@example.com');
-  const [password, setPassword] = useState('senha123');
+  const [email, setEmail] = useState('edu.schneiders@gmail.com');
+  const [password, setPassword] = useState('123456');
 
   const dispatch = useDispatch()
   const { data, loading, error } = useSelector((state: RootState) => state.professor)
@@ -72,7 +72,7 @@ export default function Login({
           <ButtonText>Login</ButtonText>
         </Button>
 
-        <Cadastro>
+        <Cadastro onPress={() => navigation.navigate('Cadastro')}>
           <Text>Não tem cadastro ainda? </Text>
           <CadastroText>Clique aqui</CadastroText>
         </Cadastro>

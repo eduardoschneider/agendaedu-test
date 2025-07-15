@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Alert, FlatList } from 'react-native';
 import {
   Container,
   Input,
   Label,
-  Button,
   ButtonText,
   SaveButton,
   AddButton,
@@ -14,6 +13,7 @@ import { Student, Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
 import { StackScreenNavigationRouteProps } from '@/navigation';
 import ObservationCard from '@/components/ObservacoesCard';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function AlunosHandler({
   navigation,
@@ -65,54 +65,34 @@ export default function AlunosHandler({
   };
 
   const addObservation = () => {
-    navigation.navigate('ObservacoesHandler', {
-      studentId: id,
-      onSave: (text: string) => {
-        const newObs: Observation = {
-          id: Date.now(), // Simulating ID generation
-          studentId: id || 0,
-          professorId: 1, // Assuming a static professor ID for simplicity
-          text,
-          date: new Date().toISOString(),
-        };
-        setObservationList(prev => [...prev, newObs]);
-      },
-    });
-  }
-
-  const editObservation = (id: number) => {
-    navigation.navigate('ObservacoesHandler', {
-      id,
-      studentId: id,
-      onSave: (text, id) => updateObservationList(text, id),
-    });
+    navigation.navigate('ObservacoesHandler', { studentId: id });
   };
 
-  function updateObservationList(newText: string, id?: number) {
-    setObservationList(prev =>
-      prev.map(obs => (obs.id === id ? { ...obs, text: newText } : obs)),
-    );
-  }
+  const editObservation = (id: number) => {
+    navigation.navigate('ObservacoesHandler', { id, studentId: id });
+  };
 
-  useEffect(() => {
-    if (id) {
-      fetchById(id).then(student => {
-        if (student) {
-          setForm({
-            name: student.name,
-            age: student.age,
-            class: student.class,
-          });
-        }
-      });
+  useFocusEffect(
+    useCallback(() => {
+      if (id) {
+        fetchById(id).then(student => {
+          if (student) {
+            setForm({
+              name: student.name,
+              age: student.age,
+              class: student.class,
+            });
+          }
+        });
 
-      fetchByKey(id, 'studentId').then(obs => {
-        if (Array.isArray(obs) && obs) {
-          setObservationList(obs);
-        }
-      });
-    }
-  }, []);
+        fetchByKey(id, 'studentId').then(obs => {
+          if (Array.isArray(obs) && obs) {
+            setObservationList(obs);
+          }
+        });
+      }
+    }, []),
+  );
 
   return (
     <Container>
@@ -138,11 +118,11 @@ export default function AlunosHandler({
         placeholder="Digite a turma"
       />
 
-      {id && 
-      <AddButton onPress={() => addObservation()}>
-        <AddButtonText> + Adicionar observação </AddButtonText>
-      </AddButton>
-      }
+      {id && (
+        <AddButton onPress={() => addObservation()}>
+          <AddButtonText> + Adicionar observação </AddButtonText>
+        </AddButton>
+      )}
       <FlatList
         data={observationList.reverse()}
         keyExtractor={item => item.id.toString()}

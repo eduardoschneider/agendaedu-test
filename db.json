@@ -7,34 +7,91 @@
       "name": "Professor Um",
       "favorites": [
         "0",
-        "1"
-      ]
+        "1",
+        "6"
+      ],
+      "bio": "Apaixonado por matemática e tecnologia."
+    },
+    {
+      "id": "2",
+      "email": "professor2@example.com",
+      "password": "senha456",
+      "name": "Professora Dois",
+      "favorites": [
+        "2",
+        "3"
+      ],
+      "bio": "Especialista em ciências e robótica."
+    },
+    {
+      "id": "3",
+      "email": "professor3@example.com",
+      "password": "senha789",
+      "name": "Professor Três",
+      "favorites": [
+        "4",
+        "5",
+        "6"
+      ],
+      "bio": "Entusiasta de literatura e artes."
+    },
+    {
+      "id": "4",
+      "email": "professora4@example.com",
+      "password": "senha321",
+      "name": "Professora Quatro",
+      "favorites": [
+        "1",
+        "3",
+        "5"
+      ],
+      "bio": "Focada em educação inclusiva e desenvolvimento social."
+    },
+    {
+      "id": "5",
+      "email": "edu.schneiders@gmail.com",
+      "password": "123456",
+      "name": "Eduardo",
+      "bio": "Dev do projeto",
+      "favorites": []
+    },
+    {
+      "id": "6",
+      "email": "edu.schneiders@gmail.com",
+      "password": "123456",
+      "name": "Eduardow",
+      "bio": "Dev do projeto",
+      "favorites": []
+    },
+    {
+      "id": "7",
+      "email": "teste",
+      "password": "12345y",
+      "name": "teste",
+      "bio": "ttt",
+      "favorites": []
+    },
+    {
+      "id": "8",
+      "email": "teste2",
+      "password": "123",
+      "name": "teste",
+      "bio": "tetete",
+      "favorites": []
     }
   ],
   "students": [
     {
-      "id": "2",
-      "name": "Carla Oliveira",
-      "age": 14,
-      "class": "2C"
-    },
-    {
       "id": "3",
-      "name": "Daniel Pereira",
+      "name": "Daniel Pereiraa",
       "age": 15,
       "class": "3A"
     },
     {
       "id": "6",
       "name": "Gabriela Almeida",
-      "age": 12,
+      "age": 122,
       "class": "4A"
-    },
-    {
-      "id": "7",
-      "name": "Henrique Lima",
-      "age": 13,
-      "class": "4B"
     },
     {
       "id": "8",
@@ -50,7 +107,7 @@
     },
     {
       "id": "10",
-      "name": "Karina Machado",
+      "name": "Karina Machadoo",
       "age": 16,
       "class": "5B"
     },
@@ -107,57 +164,82 @@
       "name": "Thiago Castro",
       "age": 13,
       "class": "4B"
+    },
+    {
+      "id": "20",
+      "name": "Aluno teste 2",
+      "age": 25,
+      "class": "GF"
+    },
+    {
+      "id": "21",
+      "name": "Aluno teste 3",
+      "age": 16,
+      "class": "T4"
+    },
+    {
+      "id": "22",
+      "name": "Jsshjzzjz",
+      "age": 15,
+      "class": "G5"
     }
   ],
   "observations": [
     {
       "id": "1",
-      "professorId": 1,
-      "studentId": 1,
+      "professorId": "1",
+      "studentId": "1",
       "text": "Aluno demonstrou bom",
       "date": "2025-07-10"
     },
     {
       "id": "2",
-      "professorId": 1,
-      "studentId": 1,
+      "professorId": "1",
+      "studentId": "1",
       "text": "Aluno precisa melhorar a atenção durante as atividades.",
       "date": "2025-07-11"
     },
     {
       "id": "3",
-      "professorId": 1,
-      "studentId": 1,
+      "professorId": "1",
+      "studentId": "1",
       "text": "Aluno participou ativamente do trabalho em grupo.",
       "date": "2025-07-12"
     },
     {
       "id": "4",
-      "professorId": 1,
-      "studentId": 1,
+      "professorId": "1",
+      "studentId": "1",
       "text": "Aluno mostrou progresso na leitura.",
       "date": "2025-07-13"
     },
     {
-      "id": "55de",
-      "professorId": 1,
-      "studentId": null,
+      "id": "5",
+      "professorId": "1",
+      "studentId": "3",
       "text": "Testetttttt",
       "date": "2025-07-14T07:10:59.492Z"
     },
     {
-      "id": "0d00",
-      "professorId": 1,
-      "studentId": null,
+      "id": "6",
+      "professorId": "1",
+      "studentId": "3",
       "text": "Teste22",
       "date": "2025-07-14T07:11:07.300Z"
     },
     {
-      "id": "46c8",
-      "professorId": 1,
-      "studentId": null,
+      "id": "7",
+      "professorId": "1",
+      "studentId": "3",
       "text": "Tatatata",
       "date": "2025-07-14T07:54:56.012Z"
+    },
+    {
+      "id": "8",
+      "professorId": 1,
+      "studentId": "6",
+      "text": "Teste2",
+      "date": "2025-07-15T07:12:59.598Z"
     }
   ]
 }

@@ -4,6 +4,7 @@ export interface Professor {
   password: string;
   name: string;
   favorites?: number[];
+  bio: string;
 }
 
 export interface Student {

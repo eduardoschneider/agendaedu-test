@@ -39,6 +39,9 @@ interface AlunoCardProps {
 export default React.memo(AlunoCard, (prev, next) => {
   return (
     prev.aluno.id === next.aluno.id &&
+    prev.aluno.name === next.aluno.name &&
+    prev.aluno.age === next.aluno.age &&
+    prev.aluno.class === next.aluno.class &&
     prev.isFavorite === next.isFavorite
   );
 });

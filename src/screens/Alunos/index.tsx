@@ -21,6 +21,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { toggleFavoriteRequest } from '@/store/professor/professorSlice';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function StudentsScreen({
   navigation,
@@ -44,9 +45,11 @@ export default function StudentsScreen({
   const dispatch = useDispatch();
   const professor = useSelector((state: RootState) => state.professor.data);
 
-  useEffect(() => {
-    fetchAll();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      fetchAll();
+    }, [])
+  );
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -60,7 +63,7 @@ export default function StudentsScreen({
 
   const handleDelete = (id: number) => {
     setFilteredList(prev => prev.filter(i => !(i.id === id)));
-    if (professor?.favorites.includes(id)) {
+    if (professor?.favorites?.includes(id)) {
         Alert.alert('Atenção', 'Não é possível deletar alunos favoritos.');
         return;
     }
@@ -90,7 +93,7 @@ export default function StudentsScreen({
     ({ item }: ListRenderItemInfo<Student>) => (
       <AlunoCard
         aluno={item}
-        isFavorite={professor?.favorites.includes(item.id)}
+        isFavorite={professor?.favorites?.includes(item.id)}
         toggleFavorite={() => handleToggleFavorite(item.id)}
         onPress={() => handleAluno(item.id)}
         onDelete={() => handleDelete(item.id)}
@@ -102,6 +105,7 @@ export default function StudentsScreen({
   useEffect(() => {
     filterAlunos();
   }, [searchTerm]);
+
 
   return (
     <Container
@@ -129,6 +133,7 @@ export default function StudentsScreen({
 
       <FlatList
         data={searchTerm.length > 0 ? filteredList : students}
+        extraData={searchTerm.length > 0 ? filteredList : students}
         keyExtractor={item => item.id.toString()}
         renderItem={renderItem}
         keyboardShouldPersistTaps="handled"

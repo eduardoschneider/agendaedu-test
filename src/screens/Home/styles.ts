@@ -21,6 +21,12 @@ export const Name = styled.Text`
     margin-top: 10px;
 `;
 
+export const Bio = styled.Text`
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 5px;
+`;
+
 export const Cargo = styled.Text`
     font-size: 16px;
     font-weight: 600;

@@ -1,11 +1,5 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface Professor {
-  id: number;
-  name: string;
-  email: string;
-  favorites: number[];
-}
+import { Professor } from '@/types/types';
 
 interface LoginPayload {
   email: string;

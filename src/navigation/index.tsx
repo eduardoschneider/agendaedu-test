@@ -9,9 +9,11 @@ import Login from '@/screens/Login';
 import Dashboard from '@/screens/Dashboard';
 import AlunosHandler from '@/screens/AlunosHandler';
 import ObservacoesHandler from '@/screens/ObservacoesHandler';
+import Cadastro from '@/screens/Cadastro';
 
 type RootStackParamList = {
   Login: undefined;
+  Cadastro: undefined;
   Dashboard: undefined;
   AlunosHandler?: { id?: number };
   ObservacoesHandler?: { id?: number; studentId?: number, onSave?: (text:string, id?: number) => void };
@@ -33,10 +35,9 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{ headerShown: false }}
-      >
+        initialRouteName="Login" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="AlunosHandler" component={AlunosHandler} />
         <Stack.Screen name="ObservacoesHandler" component={ObservacoesHandler} />
