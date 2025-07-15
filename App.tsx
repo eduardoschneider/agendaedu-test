@@ -6,6 +6,8 @@ import * as Sentry from '@sentry/react-native';
 import 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 
 Sentry.init({
   dsn: 'https://9f80f46b268f8f1f3a9a93f014fb0ee6@o4509653275836416.ingest.us.sentry.io/4509653276884992',
@@ -26,9 +28,11 @@ export default Sentry.wrap(function App() {
 
   return (
     <>
+      <StatusBar backgroundColor="#000" />
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <StatusBar backgroundColor="#000" />
-        <Routes />
+        <Provider store={store}>
+          <Routes />
+        </Provider>
       </GestureHandlerRootView>
     </>
   );

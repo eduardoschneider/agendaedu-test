@@ -3,6 +3,7 @@ export interface Professor {
   email: string;
   password: string;
   name: string;
+  favorites?: number[];
 }
 
 export interface Student {

@@ -5,6 +5,6 @@
       "@/*": ["*"]
     }
   },
-  "include": ["src", "src/@types"],
+  "include": ["src", "src/types", "src/store"],
   "extends": "@react-native/typescript-config"
 }

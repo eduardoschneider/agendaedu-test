@@ -34,7 +34,7 @@ export default function ObservacoesScreen({navigation}: {navigation: StackScreen
   }
 
   return (
-    <Container>
+    <Container  source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
       {loading && <ActivityIndicator size="large" color="purple" />}
       {error && <Message>{error}</Message>}
 

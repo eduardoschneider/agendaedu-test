@@ -4,22 +4,14 @@
       "id": "1",
       "email": "professor1@example.com",
       "password": "senha123",
-      "name": "Professor Um"
+      "name": "Professor Um",
+      "favorites": [
+        "0",
+        "1"
+      ]
     }
   ],
   "students": [
-    {
-      "id": "0",
-      "name": "Alice Silva",
-      "age": 12,
-      "class": "2A"
-    },
-    {
-      "id": "1",
-      "name": "Bruno Costae",
-      "age": 13,
-      "class": "2B"
-    },
     {
       "id": "2",
       "name": "Carla Oliveira",
@@ -31,18 +23,6 @@
       "name": "Daniel Pereira",
       "age": 15,
       "class": "3A"
-    },
-    {
-      "id": "4",
-      "name": "Eduarda Santos",
-      "age": 16,
-      "class": "3B"
-    },
-    {
-      "id": "5",
-      "name": "Felipe Rodrigues",
-      "age": 17,
-      "class": "3C"
     },
     {
       "id": "6",
@@ -162,7 +142,7 @@
       "id": "55de",
       "professorId": 1,
       "studentId": null,
-      "text": "Teste",
+      "text": "Testetttttt",
       "date": "2025-07-14T07:10:59.492Z"
     },
     {
@@ -175,16 +155,9 @@
     {
       "id": "46c8",
       "professorId": 1,
-      "studentId": "1",
+      "studentId": null,
       "text": "Tatatata",
       "date": "2025-07-14T07:54:56.012Z"
-    }
-  ],
-  "favorites": [
-    {
-      "id": "1",
-      "professorId": 1,
-      "studentId": 3
     }
   ]
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from '@react-native-vector-icons/fontawesome6';
 import Home from '@/screens/Home';
 import Alunos from '@/screens/Alunos';
 import Observacoes from '@/screens/Observacoes';
+import { CustomIcon } from './styles';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,11 +11,18 @@ export default function DashboardTabs() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
         headerShown: false,
-        tabBarStyle: { backgroundColor: '#dec4fcff', elevation: 0, borderTopWidth: 0, borderTopColor: '#e9d4ff', paddingBottom: 0 },
-        tabBarActiveTintColor: '#8332b9',
-        tabBarActiveBackgroundColor: '#e9d4ff',
-        tabBarInactiveTintColor: '#8332b99d',
+          tabBarStyle: {
+          backgroundColor: 'transparent',
+          elevation: 0,   // Android
+          shadowOpacity: 0, // iOS
+          borderTopWidth: 0,
+          position: 'absolute', // importante para deixar “flutuante” e não ocupar espaço
+        },
+        tabBarActiveTintColor: '#e7c67fff',
+        tabBarActiveBackgroundColor: 'transparent',
+        tabBarInactiveTintColor: '#c18ee2ff',
         tabBarIcon: ({ color, size }) => {
           let iconName:any = '';
           
@@ -27,7 +34,7 @@ export default function DashboardTabs() {
             iconName = 'object-group';
           }
 
-          return <Icon name={iconName} size={size} color={color} />;
+          return <CustomIcon name={iconName} size={size} color={color} />;
         },
       })}
     >

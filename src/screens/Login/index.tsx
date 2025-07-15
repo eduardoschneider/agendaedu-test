@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
 import { Professor } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest } from '@/store/professor/professorSlice';
 import {
   Container,
   BackgroundGradient,
@@ -16,6 +18,7 @@ import {
   ErrorMessage,
   Subtitle,
 } from './styles';
+import { RootState } from '@/store/store';
 
 export default function Login({
   navigation,
@@ -25,21 +28,19 @@ export default function Login({
   const [email, setEmail] = useState('professor1@example.com');
   const [password, setPassword] = useState('senha123');
 
-  const [error, _] = useState('');
-
-  const { fetchByCredentials } = useRequest<Professor>('professors');
+  const dispatch = useDispatch()
+  const { data, loading, error } = useSelector((state: RootState) => state.professor)
 
   const handleLogin = async () => {
-    console.log(email);
-    console.log(password);
-    const professor = await fetchByCredentials(email, password);
-    console.log(professor);
-    if (professor) {
-        navigation.navigate('Dashboard');
-    } else {
-      console.log('Credenciais inválidas');
-    }
+    dispatch(loginRequest({ email, password }))
   };
+  
+    useEffect(() => {
+      console.log('Login data:', data);
+    if (data) {
+      navigation.replace('Dashboard')
+    }
+  }, [data])
 
   return (
     <Container>
@@ -49,8 +50,8 @@ export default function Login({
       >
         <Logo></Logo>
 
-        <Title>Bem-vindo</Title>
-        <Subtitle>Faça o login para continuar</Subtitle>
+        <Title>Bem-vindo!</Title>
+        <Subtitle>Faça o login para continuar.</Subtitle>
 
         <Input
           placeholder="E-mail"
@@ -66,8 +67,6 @@ export default function Login({
           value={password}
           onChangeText={setPassword}
         />
-
-        {error ? <ErrorMessage>{error}</ErrorMessage> : null}
 
         <Button onPress={handleLogin}>
           <ButtonText>Login</ButtonText>

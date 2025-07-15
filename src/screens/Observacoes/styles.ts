@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.ImageBackground`
   flex: 1;
-  padding: 36px 16px;
+  padding: 36px 16px 110px 16px;
   background-color: #e9d4ff;
 `;
 

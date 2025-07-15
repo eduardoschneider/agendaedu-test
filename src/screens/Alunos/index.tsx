@@ -1,5 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, FlatList, TextInput } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  ListRenderItemInfo,
+  TextInput,
+} from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
 import AlunoCard from '../../components/AlunoCard';
 import { useRequest } from '@/hooks/useRequest';
@@ -12,6 +18,9 @@ import {
   Subtitle,
   Title,
 } from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { toggleFavoriteRequest } from '@/store/professor/professorSlice';
 
 export default function StudentsScreen({
   navigation,
@@ -32,6 +41,9 @@ export default function StudentsScreen({
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredList, setFilteredList] = useState<Student[]>(students);
 
+  const dispatch = useDispatch();
+  const professor = useSelector((state: RootState) => state.professor.data);
+
   useEffect(() => {
     fetchAll();
   }, []);
@@ -48,27 +60,54 @@ export default function StudentsScreen({
 
   const handleDelete = (id: number) => {
     setFilteredList(prev => prev.filter(i => !(i.id === id)));
+    if (professor?.favorites.includes(id)) {
+        Alert.alert('Atenção', 'Não é possível deletar alunos favoritos.');
+        return;
+    }
     remove(id);
-  }
+  };
 
   const filterAlunos = () => {
     if (searchTerm.trim() === '') {
       setFilteredList(students);
     } else {
       const filtered = students.filter(student =>
-        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+        student.name.toLowerCase().includes(searchTerm.toLowerCase()),
       );
       console.log(filtered);
       setFilteredList(filtered);
     }
-  }
+  };
+
+  const handleToggleFavorite = useCallback((id: number) => {
+    if (!professor) return;
+    dispatch(
+      toggleFavoriteRequest({ professorId: professor.id, studentId: id }),
+    );
+  }, []);
+
+  const renderItem = useCallback(
+    ({ item }: ListRenderItemInfo<Student>) => (
+      <AlunoCard
+        aluno={item}
+        isFavorite={professor?.favorites.includes(item.id)}
+        toggleFavorite={() => handleToggleFavorite(item.id)}
+        onPress={() => handleAluno(item.id)}
+        onDelete={() => handleDelete(item.id)}
+      />
+    ),
+    [professor?.favorites, handleToggleFavorite],
+  );
 
   useEffect(() => {
     filterAlunos();
   }, [searchTerm]);
 
   return (
-    <Container>
+    <Container
+      source={require('@/assets/dashboard-background.jpg')}
+      resizeMode="cover"
+    >
       {loading && <ActivityIndicator size="large" color="purple" />}
       {error && <Message>{error}</Message>}
 
@@ -80,18 +119,18 @@ export default function StudentsScreen({
         autoCapitalize="none"
         value={searchTerm}
         onChangeText={setSearchTerm}
+        style={{
+          backgroundColor: '#fff',
+          borderRadius: 8,
+          padding: 10,
+          marginBottom: 16,
+        }}
       />
 
       <FlatList
         data={searchTerm.length > 0 ? filteredList : students}
         keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => (
-          <AlunoCard
-            aluno={item}
-            onPress={() => handleAluno(item.id)}
-            onDelete={() => handleDelete(item.id)}
-          />
-        )}
+        renderItem={renderItem}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{ paddingBottom: 16 }}
         initialNumToRender={10}
