@@ -29,7 +29,7 @@ export default function AlunosHandler({
   const [form, setForm] = useState<Omit<Student, 'id'>>({
     name: '',
     age: 0,
-    class: '',
+    class: '1A',
   });
   const [observationList, setObservationList] = useState<Observation[]>([]);
 

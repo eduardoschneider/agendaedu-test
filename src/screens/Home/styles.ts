@@ -25,6 +25,7 @@ export const Name = styled(AppText)`
 export const Bio = styled(AppText)`
     font-size: 16px;
     color: #000;
+    text-align: center;
     margin-bottom: 5px;
 `;
 

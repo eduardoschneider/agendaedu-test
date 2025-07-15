@@ -21,7 +21,7 @@ export const Logo = styled(AppText)`
 `;
 
 export const Title = styled(AppText)`
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 600;
   color: #000;
   margin-bottom: 2px;
@@ -29,7 +29,7 @@ export const Title = styled(AppText)`
 `;
 
 export const Subtitle = styled(AppText)`
-  font-size: 19px;
+  font-size: 21px;
   color: #000;
   margin-bottom: 24px;
   width: 100%;

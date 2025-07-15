@@ -3,7 +3,7 @@ import { ActivityIndicator, FlatList } from 'react-native';
 import ObservationCard from '@/components/ObservacoesCard';
 import { useRequest } from '@/hooks/useRequest';
 import { Observation } from '@/types/types';
-import { AddButton, AddButtonText, Container, Message } from './styles';
+import { Container, Message } from './styles';
 import { StackScreenNavigationProp } from '@/navigation';
 
 export default function ObservacoesScreen({navigation}: {navigation: StackScreenNavigationProp<'Dashboard'>}) {

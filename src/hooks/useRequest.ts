@@ -6,14 +6,14 @@ type CollectionName = 'professors' | 'students' | 'observations' | 'favorites';
 
 type WithId = { id: number };
 
-interface PaginatedResponse {
+interface PaginatedResponse<T = any> {
   first: number;
   prev: number;
   next: number;
   last: number;
   pages: number;
   items: number;
-  data: [];
+  data: T[];
 }
 
 export function useRequest<T extends WithId>(collection: CollectionName) {
@@ -27,7 +27,7 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
   async function fetchAll() {
     setLoading(true);
     try {
-      const res = await api.get<PaginatedResponse>(`/${collection}`, {
+      const res = await api.get<PaginatedResponse<T>>(`/${collection}`, {
         params: { _page: 1 },
       });
       setItems(res.data.data);
@@ -119,38 +119,21 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     }
   }
 
-  async function fetchByCredentials(
-    email: string,
-    password: string,
-  ): Promise<T | null> {
-    setLoading(true);
-    try {
-      const res = await api.get<T[]>(`/${collection}`, {
-        params: { email: email, password: password },
-      });
-      setError(null);
-      return res.data.length > 0 ? res.data[0] : null;
-    } catch {
-      setError(`Erro ao buscar ${collection} com as credenciais`);
-      Sentry.captureException(new Error('Error fetching by credentials'));
-      return null;
-    } finally {
-      setLoading(false);
-    }
-  }
-
   const loadMore = async () => {
     if (currentPage == lastPage) return;
     if (loadingMore) return;
     setLoadingMore(true);
     try {
       const nextPage = currentPage + 1;
-      console.log(nextPage);
-      const res = await api.get<PaginatedResponse>(`/${collection}`, {
+      const res = await api.get<PaginatedResponse<T>>(`/${collection}`, {
         params: { _page: nextPage },
       });
       if (currentPage < res.data.pages) {
-        setItems(prev => [...prev, ...res.data.data]);
+        setItems(prev => {
+          const existingIds = new Set(prev.map(item => item.id));
+          const newItems = res.data.data.filter(item => !existingIds.has(item.id));
+          return [...prev, ...newItems];
+        });
         setCurrentPage(nextPage);
       }
     } finally {
@@ -167,7 +150,6 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     fetchByKey,
     loadMore,
     loadingMore,
-    fetchByCredentials,
     add,
     update,
     remove,

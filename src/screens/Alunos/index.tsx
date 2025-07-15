@@ -14,7 +14,6 @@ import {
   AddButton,
   AddButtonText,
   Container,
-  Message,
   Subtitle,
   Title,
 } from './styles';
@@ -23,11 +22,7 @@ import { RootState } from '@/store/store';
 import { toggleFavoriteRequest } from '@/store/professor/professorSlice';
 import { useFocusEffect } from '@react-navigation/native';
 
-export default function StudentsScreen({
-  navigation,
-}: {
-  navigation: StackScreenNavigationProp<'Dashboard'>;
-}) {
+export default function StudentsScreen({ navigation }: { navigation: StackScreenNavigationProp<'Dashboard'> }) {
   const {
     fetchAll,
     items: students,
@@ -103,12 +98,8 @@ export default function StudentsScreen({
     filterAlunos();
   }, [searchTerm]);
 
-
   return (
-    <Container
-      source={require('@/assets/dashboard-background.jpg')}
-      resizeMode="cover"
-    >
+    <Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
 
       <Title> Lista de Alunos</Title>
       <Subtitle> Alunos registrados na escola </Subtitle>
@@ -129,7 +120,7 @@ export default function StudentsScreen({
       <FlatList
         data={searchTerm.length > 0 ? filteredList : students}
         extraData={searchTerm.length > 0 ? filteredList : students}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{ paddingBottom: 16 }}
@@ -143,6 +134,7 @@ export default function StudentsScreen({
         onEndReachedThreshold={0.5}
         ListFooterComponent={loadingMore ? <ActivityIndicator /> : null}
       />
+
       <AddButton onPress={() => navigation.navigate('AlunosHandler')}>
         <AddButtonText> + </AddButtonText>
       </AddButton>

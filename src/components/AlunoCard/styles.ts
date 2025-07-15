@@ -17,7 +17,7 @@ export const ImageContainer = styled.View`
   height: 126px;
   width: 120px;
   overflow: hidden;
-  background-color: red;
+  background-color: white;
   margin-right: 16px;
   display: flex;
   justify-content: center;

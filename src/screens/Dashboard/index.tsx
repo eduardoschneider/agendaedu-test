@@ -15,12 +15,12 @@ export default function DashboardTabs() {
         headerShown: false,
           tabBarStyle: {
           backgroundColor: 'transparent',
-          elevation: 0,   // Android
-          shadowOpacity: 0, // iOS
+          elevation: 0,
+          shadowOpacity: 0,
           borderTopWidth: 0,
-          position: 'absolute', // importante para deixar “flutuante” e não ocupar espaço
+          position: 'absolute',
         },
-        tabBarActiveTintColor: '#e7c67fff',
+        tabBarActiveTintColor: '#eeca7cff',
         tabBarActiveBackgroundColor: 'transparent',
         tabBarInactiveTintColor: '#c18ee2ff',
         tabBarIcon: ({ color, size }) => {

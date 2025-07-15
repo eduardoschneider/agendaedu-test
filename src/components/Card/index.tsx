@@ -13,6 +13,7 @@ export default function Card({ children, style, onPress, onDelete }: CardProps) 
   
   return (
     <Swipeable
+      friction={3}
       renderRightActions={() => (
         <DeleteButton onPress={onDelete}>
           <DeleteText>Deletar</DeleteText>

@@ -23,7 +23,7 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
   const [bio, setBio] = useState('a');
   const [password, setPassword] = useState('a');
 
-  const { fetchAll, add } = useRequest<Professor>('professors');
+  const { add } = useRequest<Professor>('professors');
 
   const handleCadastro = async () => {
     try {
@@ -41,11 +41,6 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
       Alert.alert('Erro', 'Não foi possível cadastrar o professor.');
     }
   };
-
-  useEffect(() => {
-    console.log('deu fetch')
-    fetchAll();
-  }, [])
 
   return (
     <Container>

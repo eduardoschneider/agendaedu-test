@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.ImageBackground`
   flex: 1;
-  padding: 36px 16px 110px 16px;
+  padding: 56px 26px 120px 26px;
   background-color: #e9d4ff;
 `;
 

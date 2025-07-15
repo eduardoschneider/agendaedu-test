@@ -25,19 +25,20 @@ export default function Login({
   const [email, setEmail] = useState('edu.schneiders@gmail.com');
   const [password, setPassword] = useState('123456');
 
-  const dispatch = useDispatch()
-  const { data, loading, error } = useSelector((state: RootState) => state.professor)
+  const dispatch = useDispatch();
+  const { data } = useSelector(
+    (state: RootState) => state.professor,
+  );
 
   const handleLogin = async () => {
-    dispatch(loginRequest({ email, password }))
+    dispatch(loginRequest({ email, password }));
   };
-  
-    useEffect(() => {
-      console.log('Login data:', data);
+
+  useEffect(() => {
     if (data) {
-      navigation.replace('Dashboard')
+      navigation.replace('Dashboard');
     }
-  }, [data])
+  }, [data]);
 
   return (
     <Container>
@@ -47,11 +48,11 @@ export default function Login({
       >
         <Logo></Logo>
 
-        <Title>Bem-vindo!</Title>
+        <Title>Bem-vindo</Title>
         <Subtitle>Faça o login para continuar.</Subtitle>
 
         <Input
-          placeholder="E-mail"
+          placeholder="Digite seu e-mail..."
           keyboardType="email-address"
           autoCapitalize="none"
           value={email}
@@ -59,7 +60,7 @@ export default function Login({
         />
 
         <Input
-          placeholder="Senha"
+          placeholder="Digite sua senha..."
           secureTextEntry
           value={password}
           onChangeText={setPassword}

@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '@/components/Card';
 import { Observation } from '@/types/types';
 import { Title, Info, Container } from './styles';
-import { View } from 'react-native';
 
 interface ObservationCardProps {
   obs: Observation;
@@ -10,11 +9,7 @@ interface ObservationCardProps {
   onDelete?: () => void;
 }
 
-export default function ObservationCard({
-  obs,
-  onPress,
-  onDelete,
-}: ObservationCardProps) {
+export default function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
 
   const customStyle = {backgroundColor: 'white', borderColor: '#00000011'};
 
@@ -30,7 +25,7 @@ export default function ObservationCard({
                 month: '2-digit',
                 year: 'numeric',
               })
-            : 'data desconhecida'}
+            : '-'}
         </Info>
       </Container>
     </Card>
