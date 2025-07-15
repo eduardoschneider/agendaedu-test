@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
-import { Professor } from '@/types/types';
-import { useRequest } from '@/hooks/useRequest';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest } from '@/store/professor/professorSlice';
 import {
@@ -15,10 +12,10 @@ import {
   ButtonText,
   Cadastro,
   CadastroText,
-  ErrorMessage,
   Subtitle,
 } from './styles';
 import { RootState } from '@/store/store';
+import AppText from '@/components/AppText';
 
 export default function Login({
   navigation,
@@ -73,7 +70,7 @@ export default function Login({
         </Button>
 
         <Cadastro onPress={() => navigation.navigate('Cadastro')}>
-          <Text>Não tem cadastro ainda? </Text>
+          <AppText>Não tem cadastro ainda? </AppText>
           <CadastroText>Clique aqui</CadastroText>
         </Cadastro>
       </BackgroundGradient>

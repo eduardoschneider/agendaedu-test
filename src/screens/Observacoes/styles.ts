@@ -1,3 +1,4 @@
+import AppText from '@/components/AppText';
 import styled from 'styled-components/native';
 
 export const Container = styled.ImageBackground`
@@ -6,7 +7,7 @@ export const Container = styled.ImageBackground`
   background-color: #e9d4ff;
 `;
 
-export const Message = styled.Text`
+export const Message = styled(AppText)`
   text-align: center;
   margin: 16px 0;
   color: red;
@@ -27,8 +28,8 @@ export const AddButton = styled.TouchableOpacity`
   right: 20px;
 `;
 
-export const AddButtonText = styled.Text`
+export const AddButtonText = styled(AppText)`
   color: white;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
 `;

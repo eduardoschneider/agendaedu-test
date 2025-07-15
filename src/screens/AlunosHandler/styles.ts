@@ -1,3 +1,4 @@
+import AppText from '@/components/AppText';
 import { Picker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 
@@ -10,11 +11,11 @@ export const Container = styled.View`
   padding-bottom: 110px;
 `;
 
-export const Label = styled.Text`
+export const Label = styled(AppText)`
   font-size: 12px;
   color: #333;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 600;
   margin-top: 15px;
   margin-left:4px;
 `;
@@ -37,10 +38,10 @@ export const Button = styled.TouchableOpacity`
   margin-top: 30px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled(AppText)`
   color: white;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
 `;
 
 export const SaveButton = styled.TouchableOpacity`
@@ -69,10 +70,10 @@ export const AddButton = styled.TouchableOpacity`
   margin-bottom: 5px;
 `;
 
-export const AddButtonText = styled.Text`
+export const AddButtonText = styled(AppText)`
   color: white;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
 `;
 
 export const CustomPicker = styled(Picker)`

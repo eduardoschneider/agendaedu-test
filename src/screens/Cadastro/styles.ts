@@ -1,3 +1,4 @@
+import AppText from '@/components/AppText';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
@@ -12,14 +13,14 @@ export const BackgroundGradient = styled.ImageBackground`
   background-color: #fff;
 `;
 
-export const Logo = styled.Text`
+export const Logo = styled(AppText)`
   font-size: 48px;
-  font-weight: 900;
+  font-weight: 600;
   color: #fff;
   margin-bottom: 40px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled(AppText)`
   font-size: 22px;
   font-weight: 600;
   color: #000;
@@ -27,7 +28,7 @@ export const Title = styled.Text`
   width: 100%;
 `;
 
-export const Subtitle = styled.Text`
+export const Subtitle = styled(AppText)`
   font-size: 15px;
   color: #000;
   margin-bottom: 24px;
@@ -57,10 +58,10 @@ export const Button = styled.TouchableOpacity`
   margin-top: 12px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled(AppText)`
   color: #8332b9;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   width: 100%;
   text-align: center;
@@ -71,13 +72,13 @@ export const CadastroContainer = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
-export const CadastroText = styled.Text`
+export const CadastroText = styled(AppText)`
   color: #000;
   font-size: 14px;
   text-decoration: underline;
 `;
 
-export const ErrorMessage = styled.Text`
+export const ErrorMessage = styled(AppText)`
   color: #ff3333;
   margin-bottom: 8px;
   font-weight: 600;

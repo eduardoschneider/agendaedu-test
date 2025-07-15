@@ -1,3 +1,4 @@
+import AppText from '@/components/AppText';
 import styled from 'styled-components/native';
 
 export const Container = styled.ImageBackground`
@@ -14,20 +15,20 @@ export const Profile = styled.Image`
     border-color: #8332b9;
 `;
 
-export const Name = styled.Text`
+export const Name = styled(AppText)`
     font-size: 24px;
     font-weight: 600;
     color: #000;
     margin-top: 10px;
 `;
 
-export const Bio = styled.Text`
+export const Bio = styled(AppText)`
     font-size: 16px;
     color: #000;
     margin-bottom: 5px;
 `;
 
-export const Cargo = styled.Text`
+export const Cargo = styled(AppText)`
     font-size: 16px;
     font-weight: 600;
     background-color: #8332b9;
@@ -56,16 +57,16 @@ export const Badge = styled.View`
     margin: 10px;
 `;
 
-export const Counter = styled.Text`
+export const Counter = styled(AppText)`
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 600;
     padding-top: 20px;
     color: black;
 `;
 
-export const CounterLabel = styled.Text`
+export const CounterLabel = styled(AppText)`
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 600;
     background-color: #8332b9;
     position: absolute;
     padding: 5px;
@@ -81,7 +82,7 @@ export const SairButton = styled.TouchableOpacity`
     left: 20px;
 `;
 
-export const SairLabel = styled.Text`
+export const SairLabel = styled(AppText)`
     color: red;
     font-weight:bold;
     font-size:13px;

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import AppText from '../AppText';
 
 export const CardContainer = styled.TouchableOpacity`
   background-color: #e9d4ff;
@@ -21,8 +22,8 @@ export const DeleteButton = styled.TouchableOpacity`
   border-bottom-right-radius: 8px;
 `;
 
-export const DeleteText = styled.Text`
+export const DeleteText = styled(AppText)`
   color: red;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
 `;

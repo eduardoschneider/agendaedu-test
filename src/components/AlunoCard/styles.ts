@@ -1,12 +1,13 @@
 import styled from 'styled-components/native';
+import AppText from '../AppText';
 
-export const Title = styled.Text`
-  font-weight: bold;
+export const Title = styled(AppText)`
+  font-weight: 600;
   font-size: 18px;
   margin-bottom: 4px;
 `;
 
-export const Info = styled.Text`
+export const Info = styled(AppText)`
   font-size: 14px;
   margin-top:3px;
   color: black;

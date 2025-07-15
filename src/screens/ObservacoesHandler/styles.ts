@@ -9,7 +9,7 @@ export const Container = styled.View`
   padding-bottom: 110px;
 `;
 
-export const Label = styled.Text`
+export const Label = styled(AppText)`
   font-size: 12px;
   color: #333;
   font-weight: 600;
@@ -28,13 +28,13 @@ export const Input = styled.TextInput`
   font-size: 16px;
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled(AppText)`
   color: white;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
 `;
 
-export const Title = styled.Text`
+export const Title = styled(AppText)`
   font-size: 19px;
   margin-bottom: 20px;
 `;
@@ -56,7 +56,7 @@ export const GuideContainer = styled.View`
 
 `;
 
-export const GuideLabel = styled.Text`
+export const GuideLabel = styled(AppText)`
   font-size: 14px;
   color: #555;
   margin-bottom: 8px;
