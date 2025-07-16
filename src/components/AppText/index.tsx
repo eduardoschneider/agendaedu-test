@@ -11,7 +11,7 @@ const StyledText = styled.Text<{ fontFamily: string }>`
 `;
 
 const AppText: React.FC<AppTextProps> = ({ style, children, ...rest }) => {
-  // Detecta fontWeight mesmo se for array
+
   let fontWeight: string | undefined;
 
   if (Array.isArray(style)) {
@@ -22,7 +22,6 @@ const AppText: React.FC<AppTextProps> = ({ style, children, ...rest }) => {
     fontWeight = style.fontWeight.toString();
   }
 
-  // Decide qual fonte usar
   let fontFamily = 'Nexa-Regular';
   if (fontWeight === 'bold' || (fontWeight && parseInt(fontWeight) >= 600)) {
     fontFamily = 'Nexa-Bold';

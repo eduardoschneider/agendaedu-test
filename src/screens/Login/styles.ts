@@ -23,7 +23,7 @@ export const Logo = styled(AppText)`
 export const Title = styled(AppText)`
   font-size: 34px;
   font-weight: 600;
-  color: #000;
+  color: #6f07e6ff;
   margin-bottom: 2px;
   width: 100%;
 `;

@@ -87,7 +87,7 @@ export default function StudentsScreen({ navigation }: { navigation: StackScreen
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       filterAlunos();
-    }, 1000); 
+    }, 1500); 
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);

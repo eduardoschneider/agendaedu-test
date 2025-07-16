@@ -37,7 +37,7 @@ export const AddButtonText = styled(AppText)`
 export const Title = styled(AppText)`
   font-size: 32px;
   font-weight: 600;
-  color: #000;
+  color: #7203f1ff;
 `;
 
 export const Subtitle = styled(AppText)`

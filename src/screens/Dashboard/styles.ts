@@ -13,8 +13,6 @@ export const CustomIcon = styled(Icon)`
     background-color: #730dd3ff;
     border-radius: 50px;
     padding: 5px;
-
-    /* Sombra para React Native */
     shadow-color: #000;
     shadow-offset: 0px 2px;
     shadow-opacity: 0.65;

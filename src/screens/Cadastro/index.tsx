@@ -4,6 +4,7 @@ import { StackScreenNavigationProp } from '@/navigation';
 import * as SC from './styles';
 import { useRequest } from '@/hooks/useRequest';
 import { Professor } from '@/types/types';
+import { validateObjectFields } from '@/utils/validation';
 
 export default function Cadastro({navigation}: {navigation: StackScreenNavigationProp<'Login'>;}) {
 
@@ -15,19 +16,23 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
   const { add } = useRequest<Professor>('professors');
 
   const handleCadastro = async () => {
-    try {
-      await add({
+    let user = {
         email: email,
         password: password,
         name: name,
         bio: bio,
         favorites: []
-      });
+    };
+    let validation = validateObjectFields(user);
+    if (validation) {
+      try {
+        await add(user);
 
-      Alert.alert('Cadastro feito com sucesso!');
-      navigation.goBack();
-    } catch (err) {
-      Alert.alert('Erro', 'Não foi possível cadastrar o professor.');
+        Alert.alert('Cadastro feito com sucesso!');
+        navigation.goBack();
+      } catch (err) {
+        Alert.alert('Erro', 'Não foi possível cadastrar o professor.');
+      }
     }
   };
 

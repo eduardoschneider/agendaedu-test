@@ -37,5 +37,5 @@ interface AlunoCardProps {
 }
 
 export default React.memo(AlunoCard, (prev, next) => {
-  return isEqual(prev.aluno, next.aluno);
+  return isEqual(prev.aluno, next.aluno) && prev.isFavorite === next.isFavorite;
 });

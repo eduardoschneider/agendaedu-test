@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Alert, FlatList, ListRenderItemInfo } from 'react-native';
 import *  as SC from './styles';
 import { Student, Observation } from '@/types/types';
