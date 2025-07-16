@@ -30,7 +30,9 @@ export const ImageContainer = styled.View`
 export const AlunoImage = styled.Image`
   width: 200%;
   height: 100%;
+  position: absolute;
 `;
+
 
 export const AlunoContainer = styled.View`
   flex: 1;

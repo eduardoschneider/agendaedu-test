@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '@/components/Card';
 import { Observation } from '@/types/types';
 import * as SC from './styles';
+import isEqual from 'lodash.isequal';
 
 interface ObservationCardProps {
   obs: Observation;
@@ -9,7 +10,7 @@ interface ObservationCardProps {
   onDelete?: () => void;
 }
 
-export default function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
+function ObservationCard({ obs, onPress, onDelete }: ObservationCardProps) {
 
   const customStyle = {backgroundColor: 'white', borderColor: '#00000011'};
 
@@ -31,3 +32,7 @@ export default function ObservationCard({ obs, onPress, onDelete }: ObservationC
     </Card>
   );
 }
+
+export default React.memo(ObservationCard, (prev, next) => {
+  return isEqual(prev.obs, next.obs);
+});

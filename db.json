@@ -30,8 +30,8 @@
     {
       "id": "3",
       "name": "Nicole Pereira",
-      "age": 15,
-      "class": "1B"
+      "age": 13,
+      "class": "2B"
     },
     {
       "id": "5",
@@ -608,6 +608,12 @@
       "name": "Benjamin Viana",
       "age": 15,
       "class": "2A"
+    },
+    {
+      "id": "dfd6",
+      "name": "José da Silva",
+      "age": 15,
+      "class": "2C"
     }
   ],
   "observations": [
@@ -1226,13 +1232,6 @@
       "studentId": "35",
       "text": "Ipsum doloribus occaecati ducimus.",
       "date": "2025-04-20"
-    },
-    {
-      "id": "91",
-      "professorId": "1",
-      "studentId": "35",
-      "text": "Odit totam quidem repellendus commodi.",
-      "date": "2025-02-03"
     },
     {
       "id": "92",

@@ -3,6 +3,7 @@ import Card from '@/components/Card';
 import { Student } from '@/types/types';
 import  * as SC  from './styles';
 import { getRandomColor } from '@/utils/colors';
+import isEqual from 'lodash.isequal';
 
 interface AlunoCardProps {
   aluno: Student;
@@ -17,7 +18,8 @@ interface AlunoCardProps {
   return (
     <Card onPress={onPress} onDelete={onDelete} style={{ backgroundColor: getRandomColor(aluno.name) }} testID="card">
       <SC.ImageContainer>
-        <SC.AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + (Number(aluno.id) >= 100 ? 1:aluno.id) + ".jpg" }}/>
+        <SC.AlunoImage source={require('@/assets/profile-pic.png')}/>
+        <SC.AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + aluno.id + ".jpg" }}/>
       </SC.ImageContainer>
 
       <SC.FavoriteIconContainer testID="favorite-icon" onPress={(e) => { e?.stopPropagation?.(); toggleFavorite() }}>
@@ -35,11 +37,5 @@ interface AlunoCardProps {
 }
 
 export default React.memo(AlunoCard, (prev, next) => {
-  return (
-    prev.aluno.id === next.aluno.id &&
-    prev.aluno.name === next.aluno.name &&
-    prev.aluno.age === next.aluno.age &&
-    prev.aluno.class === next.aluno.class &&
-    prev.isFavorite === next.isFavorite
-  );
+  return isEqual(prev.aluno, next.aluno);
 });
