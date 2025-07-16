@@ -7,9 +7,10 @@ interface CardProps {
   style?: any;
   onPress?: () => void;
   onDelete?: () => void;
+  testID: any;
 }
 
-export default function Card({ children, style, onPress, onDelete }: CardProps) {
+export default function Card({ children, style, onPress, onDelete, testID }: CardProps) {
   
   return (
     <Swipeable
@@ -19,7 +20,7 @@ export default function Card({ children, style, onPress, onDelete }: CardProps) 
           <DeleteText>Deletar</DeleteText>
         </DeleteButton>
       )}>
-      <CardContainer onPress={onPress} style={style}>
+      <CardContainer testID={testID} onPress={onPress} style={style}>
         {children}
       </CardContainer>
     </Swipeable>

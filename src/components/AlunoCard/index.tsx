@@ -15,14 +15,14 @@ interface AlunoCardProps {
  function AlunoCard({ aluno, onPress, onDelete, isFavorite, toggleFavorite }: AlunoCardProps) {
 
   return (
-    <Card onPress={onPress} onDelete={onDelete} style={{ backgroundColor: getRandomColor(aluno.name) }}>
+    <Card onPress={onPress} onDelete={onDelete} style={{ backgroundColor: getRandomColor(aluno.name) }} testID="card">
       <ImageContainer>
         <AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + (Number(aluno.id) >= 100 ? 1:aluno.id) + ".jpg" }}/>
       </ImageContainer>
 
-      <FavoriteIconContainer onPress={(e) => { e.stopPropagation(); toggleFavorite() }}>
+      <FavoriteIconContainer testID="favorite-icon" onPress={(e) => { e?.stopPropagation?.(); toggleFavorite() }}>
 
-        <FavoriteIcon source={require('@/assets/favorite.png')} style={{opacity: isFavorite ? 1:0.2}}/>
+        <FavoriteIcon source={require('@/assets/favorite.png')} style={{opacity: isFavorite === true ? 1:0.2}}/>
       </FavoriteIconContainer>
 
       <AlunoContainer>
