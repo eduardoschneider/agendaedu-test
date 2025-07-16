@@ -35,8 +35,10 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
       return;
     }
 
-    if (id) { await update(id, form);
-     } else { await add(form);}
+    if (id) 
+      await update(id, form);
+    else  
+      await add(form);
 
     navigation?.goBack();
     Alert.alert('Sucesso', 'Aluno salvo com sucesso!');
@@ -61,11 +63,11 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
 
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<Observation>) => (
-          <ObservationCard
-            obs={item}
-            onPress={() => handleObservation(item.id)}
-            onDelete={() => handleDeleteObservation(item.id)}
-          />
+      <ObservationCard
+        obs={item}
+        onPress={() => handleObservation(item.id)}
+        onDelete={() => handleDeleteObservation(item.id)}
+      />
     ),
     [observationList],
   );
@@ -112,9 +114,7 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
 
       <SC.Label>Turma</SC.Label>
       <SC.CustomPicker selectedValue={form.class}
-        onValueChange={(itemValue) =>
-          handleChange('class', itemValue as string)
-        }>
+        onValueChange={(itemValue) => handleChange('class', itemValue as string)}>
         <Picker.Item label="1A" value="1A" />
         <Picker.Item label="2A" value="2A" />
         <Picker.Item label="1B" value="1B" />
@@ -128,13 +128,11 @@ export default function AlunosHandler({ navigation, route }: StackScreenNavigati
           <SC.AddButtonText> + Adicionar observação </SC.AddButtonText>
         </SC.AddButton>
       )}
-
   
       <FlatList
         data={observationList}
         keyExtractor={item => item.id.toString()}
         renderItem={renderItem}/>
-      
 
       <SC.SaveButton onPress={handleSubmit}>
         <SC.ButtonText>Salvar</SC.ButtonText>
