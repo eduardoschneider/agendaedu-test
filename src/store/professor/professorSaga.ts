@@ -1,10 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
 import api from '@/services/api';
-import {
-  loginRequest, loginSuccess, loginFailure,
-  toggleFavoriteRequest, toggleFavoriteSuccess, toggleFavoriteFailure
-} from './professorSlice';
+import { loginRequest, loginSuccess, loginFailure, toggleFavoriteRequest, toggleFavoriteSuccess, toggleFavoriteFailure } from './professorSlice';
 
 function* login({ payload }: ReturnType<typeof loginRequest>): SagaIterator {
   try {

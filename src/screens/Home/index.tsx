@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Badge, Profile, BadgeContainer, Name, Cargo, Counter, CounterLabel, Bio, SairButton, SairLabel } from './styles';
+import * as SC from './styles';
 import { RootState } from '@/store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { StackScreenNavigationProp } from '@/navigation';
@@ -19,27 +19,27 @@ export default function Home({ navigation }: { navigation: StackScreenNavigation
   }
 
   return (
-    <Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
+    <SC.Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
 
-      <SairButton onPress={() => logoff()}>
-        <SairLabel> Sair </SairLabel>
-      </SairButton>
+      <SC.SairButton onPress={() => logoff()}>
+        <SC.SairLabel> Sair </SC.SairLabel>
+      </SC.SairButton>
 
-      <Profile
+      <SC.Profile
         source={{ uri: "https://randomuser.me/api/portraits/men/4.jpg" }}
         resizeMode="cover"/>
 
-      <Name>{professor?.name}</Name>
-      <Bio>{professor?.bio}</Bio>
-      <Cargo>PROFESSOR</Cargo>
+      <SC.Name>{professor?.name}</SC.Name>
+      <SC.Bio>{professor?.bio}</SC.Bio>
+      <SC.Cargo>PROFESSOR</SC.Cargo>
 
-      <BadgeContainer>
-        <Badge>
-          <CounterLabel>ALUNOS FAVORITOS</CounterLabel>
-          <Counter>{professor?.favorites?.length}</Counter>
-        </Badge>
-      </BadgeContainer>
+      <SC.BadgeContainer>
+        <SC.Badge>
+          <SC.CounterLabel>ALUNOS FAVORITOS</SC.CounterLabel>
+          <SC.Counter>{professor?.favorites?.length}</SC.Counter>
+        </SC.Badge>
+      </SC.BadgeContainer>
       
-    </Container>
+    </SC.Container>
   );
 }

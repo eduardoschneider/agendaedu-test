@@ -1,15 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Alert, FlatList } from 'react-native';
-import {
-  Container,
-  Input,
-  Label,
-  ButtonText,
-  SaveButton,
-  AddButton,
-  AddButtonText,
-  CustomPicker,
-} from './styles';
+import { Alert, FlatList, ListRenderItemInfo } from 'react-native';
+import *  as SC from './styles';
 import { Student, Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
 import { StackScreenNavigationRouteProps } from '@/navigation';
@@ -17,15 +8,12 @@ import ObservationCard from '@/components/ObservacoesCard';
 import { useFocusEffect } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 
-export default function AlunosHandler({
-  navigation,
-  route,
-}: StackScreenNavigationRouteProps<'AlunosHandler'>) {
+export default function AlunosHandler({ navigation, route }: StackScreenNavigationRouteProps<'AlunosHandler'>) {
   
-  const { id } = route.params || {};
-
   const { fetchById, update, add } = useRequest<Student>('students');
   const { fetchByKey, remove } = useRequest<Observation>('observations');
+
+  const { id } = route.params || {};
 
   const [form, setForm] = useState<Omit<Student, 'id'>>({
     name: '',
@@ -47,11 +35,8 @@ export default function AlunosHandler({
       return;
     }
 
-    if (id) {
-      await update(id, form);
-    } else {
-      await add(form);
-    }
+    if (id) { await update(id, form);
+     } else { await add(form);}
 
     navigation?.goBack();
     Alert.alert('Sucesso', 'Aluno salvo com sucesso!');
@@ -67,13 +52,23 @@ export default function AlunosHandler({
     }
   };
 
-  const addObservation = () => {
-    navigation.navigate('ObservacoesHandler', { studentId: id });
+  const handleObservation = (observationId?: number) => {
+    navigation.navigate('ObservacoesHandler', {
+      id: observationId,
+      studentId: id
+    });
   };
 
-  const editObservation = (id: number) => {
-    navigation.navigate('ObservacoesHandler', { id, studentId: id });
-  };
+  const renderItem = useCallback(
+    ({ item }: ListRenderItemInfo<Observation>) => (
+          <ObservationCard
+            obs={item}
+            onPress={() => handleObservation(item.id)}
+            onDelete={() => handleDeleteObservation(item.id)}
+          />
+    ),
+    [observationList],
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -98,16 +93,16 @@ export default function AlunosHandler({
   );
 
   return (
-    <Container>
-      <Label>Nome</Label>
-      <Input
+    <SC.Container>
+      <SC.Label>Nome</SC.Label>
+      <SC.Input
         value={form.name}
         onChangeText={text => handleChange('name', text)}
         placeholder="Digite o nome do aluno"
       />
 
-      <Label>Idade</Label>
-      <Input
+      <SC.Label>Idade</SC.Label>
+      <SC.Input
         value={form.age ? String(form.age) : ''}
         onChangeText={text => handleChange('age', text)}
         keyboardType="numeric"
@@ -115,9 +110,9 @@ export default function AlunosHandler({
         maxLength={2}
       />
 
-      <Label>Turma</Label>
-      <CustomPicker selectedValue={form.class}
-        onValueChange={(itemValue, itemIndex) =>
+      <SC.Label>Turma</SC.Label>
+      <SC.CustomPicker selectedValue={form.class}
+        onValueChange={(itemValue) =>
           handleChange('class', itemValue as string)
         }>
         <Picker.Item label="1A" value="1A" />
@@ -126,31 +121,24 @@ export default function AlunosHandler({
         <Picker.Item label="2B" value="2B" />
         <Picker.Item label="1C" value="1C" />
         <Picker.Item label="2C" value="2C" />
-      </CustomPicker>
+      </SC.CustomPicker>
 
       {id && (
-        <AddButton onPress={() => addObservation()}>
-          <AddButtonText> + Adicionar observação </AddButtonText>
-        </AddButton>
+        <SC.AddButton onPress={() => handleObservation()}>
+          <SC.AddButtonText> + Adicionar observação </SC.AddButtonText>
+        </SC.AddButton>
       )}
 
-      {id &&
+  
       <FlatList
-        data={observationList.reverse()}
+        data={observationList}
         keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => (
-          <ObservationCard
-            obs={item}
-            onPress={() => editObservation(item.id)}
-            onDelete={() => handleDeleteObservation(item.id)}
-          />
-        )}
-      />
-      }
+        renderItem={renderItem}/>
+      
 
-      <SaveButton onPress={handleSubmit}>
-        <ButtonText>Salvar</ButtonText>
-      </SaveButton>
-    </Container>
+      <SC.SaveButton onPress={handleSubmit}>
+        <SC.ButtonText>Salvar</SC.ButtonText>
+      </SC.SaveButton>
+    </SC.Container>
   );
 }

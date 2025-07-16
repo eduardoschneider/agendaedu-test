@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import AppText from '../AppText';
+import AppText from '@/components/AppText';
 
 export const Title = styled(AppText)`
   font-weight: 600;

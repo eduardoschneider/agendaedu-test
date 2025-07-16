@@ -1,22 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-  ActivityIndicator,
-  Alert,
-  FlatList,
-  ListRenderItemInfo,
-  TextInput,
-} from 'react-native';
+import { ActivityIndicator, Alert, FlatList, ListRenderItemInfo, TextInput } from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
 import AlunoCard from '../../components/AlunoCard';
 import { useRequest } from '@/hooks/useRequest';
 import { Student } from '@/types/types';
-import {
-  AddButton,
-  AddButtonText,
-  Container,
-  Subtitle,
-  Title,
-} from './styles';
+import * as SC from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { toggleFavoriteRequest } from '@/store/professor/professorSlice';
@@ -28,6 +16,7 @@ export default function StudentsScreen({ navigation }: { navigation: StackScreen
     items: students,
     remove,
     loadMore,
+    fetchByKey,
     loadingMore,
   } = useRequest<Student>('students');
 
@@ -67,10 +56,11 @@ export default function StudentsScreen({ navigation }: { navigation: StackScreen
     if (searchTerm.trim() === '') {
       setFilteredList(students);
     } else {
-      const filtered = students.filter(student =>
-        student.name.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-      setFilteredList(filtered);
+        fetchByKey(searchTerm, 'name').then(obs => {
+          if (Array.isArray(obs) && obs) {
+            setFilteredList(obs);
+          }
+        });
     }
   };
 
@@ -95,14 +85,18 @@ export default function StudentsScreen({ navigation }: { navigation: StackScreen
   );
 
   useEffect(() => {
-    filterAlunos();
+    const delayDebounceFn = setTimeout(() => {
+      filterAlunos();
+    }, 1000); 
+
+    return () => clearTimeout(delayDebounceFn);
   }, [searchTerm]);
 
   return (
-    <Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
+    <SC.Container source={require('@/assets/dashboard-background.jpg')} resizeMode="cover">
 
-      <Title> Lista de Alunos</Title>
-      <Subtitle> Alunos registrados na escola </Subtitle>
+      <SC.Title> Lista de Alunos </SC.Title>
+      <SC.Subtitle> Alunos registrados na escola </SC.Subtitle>
       <TextInput
         placeholder="Pesquisar aluno por nome..."
         keyboardType="default"
@@ -135,9 +129,9 @@ export default function StudentsScreen({ navigation }: { navigation: StackScreen
         ListFooterComponent={loadingMore ? <ActivityIndicator /> : null}
       />
 
-      <AddButton onPress={() => navigation.navigate('AlunosHandler')}>
-        <AddButtonText> + </AddButtonText>
-      </AddButton>
-    </Container>
+      <SC.AddButton onPress={() => navigation.navigate('AlunosHandler', {})}>
+        <SC.AddButtonText> + </SC.AddButtonText>
+      </SC.AddButton>
+    </SC.Container>
   );
 }

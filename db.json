@@ -4,13 +4,20 @@
       "id": "1",
       "email": "edu.schneiders@gmail.com",
       "password": "123456",
-      "name": "João Silva",
+      "name": "José da Silva",
+      "bio": "Sou um professor iniciante.",
       "favorites": [
         "1",
-        "3",
-        "4"
-      ],
-      "bio": "Professor de matemática e física, apaixonado por ensinar."
+        "3"
+      ]
+    },
+    {
+      "id": "a886",
+      "email": "jose@gmail.com",
+      "password": "123456",
+      "name": "José da Silva",
+      "bio": "Sou um professor iniciante.",
+      "favorites": []
     }
   ],
   "students": [
@@ -21,22 +28,10 @@
       "class": "1C"
     },
     {
-      "id": "2",
-      "name": "Larissa Moreira",
-      "age": 14,
-      "class": "2C"
-    },
-    {
       "id": "3",
       "name": "Nicole Pereira",
       "age": 15,
       "class": "1B"
-    },
-    {
-      "id": "4",
-      "name": "Eloah Lima",
-      "age": 15,
-      "class": "1C"
     },
     {
       "id": "5",
@@ -617,44 +612,30 @@
   ],
   "observations": [
     {
-      "id": "1",
-      "professorId": "1",
-      "studentId": "1",
-      "text": "Pariatur placeat nisi sed minus repudiandae.",
-      "date": "2025-05-14"
-    },
-    {
-      "id": "2",
-      "professorId": "1",
-      "studentId": "1",
-      "text": "Dolorum laborum esse aspernatur.",
-      "date": "2025-05-13"
-    },
-    {
       "id": "3",
       "professorId": "1",
       "studentId": "1",
-      "text": "Explicabo aliquid voluptatem.",
+      "text": "Explicabo aliquid voluptatem",
       "date": "2025-02-15"
     },
     {
       "id": "4",
       "professorId": "1",
-      "studentId": "2",
+      "studentId": null,
       "text": "Accusantium ratione molestias sed alias est.",
       "date": "2025-03-11"
     },
     {
       "id": "5",
       "professorId": "1",
-      "studentId": "2",
+      "studentId": null,
       "text": "Autem dignissimos nesciunt ducimus.",
       "date": "2025-07-09"
     },
     {
       "id": "6",
       "professorId": "1",
-      "studentId": "2",
+      "studentId": null,
       "text": "Facere neque adipisci aut.",
       "date": "2025-06-12"
     },
@@ -682,21 +663,21 @@
     {
       "id": "10",
       "professorId": "1",
-      "studentId": "4",
+      "studentId": null,
       "text": "Quidem quibusdam pariatur hic.",
       "date": "2025-02-14"
     },
     {
       "id": "11",
       "professorId": "1",
-      "studentId": "4",
+      "studentId": null,
       "text": "Nemo suscipit in quasi ullam beatae.",
       "date": "2025-03-30"
     },
     {
       "id": "12",
       "professorId": "1",
-      "studentId": "4",
+      "studentId": null,
       "text": "Earum fuga expedita amet numquam dolorem cumque mollitia.",
       "date": "2025-04-27"
     },

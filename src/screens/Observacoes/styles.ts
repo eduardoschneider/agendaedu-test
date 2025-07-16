@@ -7,12 +7,6 @@ export const Container = styled.ImageBackground`
   background-color: #e9d4ff;
 `;
 
-export const Message = styled(AppText)`
-  text-align: center;
-  margin: 16px 0;
-  color: red;
-`;
-
 export const AddButton = styled.TouchableOpacity`
   background-color: #4CAF50;
   width: 64px;

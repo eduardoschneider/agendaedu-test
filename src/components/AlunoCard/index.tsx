@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@/components/Card';
 import { Student } from '@/types/types';
-import { Title, Info, AlunoContainer, AlunoImage, ImageContainer, FavoriteIcon, FavoriteIconContainer } from './styles';
+import  * as SC  from './styles';
 import { getRandomColor } from '@/utils/colors';
 
 interface AlunoCardProps {
@@ -16,20 +16,20 @@ interface AlunoCardProps {
 
   return (
     <Card onPress={onPress} onDelete={onDelete} style={{ backgroundColor: getRandomColor(aluno.name) }} testID="card">
-      <ImageContainer>
-        <AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + (Number(aluno.id) >= 100 ? 1:aluno.id) + ".jpg" }}/>
-      </ImageContainer>
+      <SC.ImageContainer>
+        <SC.AlunoImage source={{ uri: "https://randomuser.me/api/portraits/men/" + (Number(aluno.id) >= 100 ? 1:aluno.id) + ".jpg" }}/>
+      </SC.ImageContainer>
 
-      <FavoriteIconContainer testID="favorite-icon" onPress={(e) => { e?.stopPropagation?.(); toggleFavorite() }}>
+      <SC.FavoriteIconContainer testID="favorite-icon" onPress={(e) => { e?.stopPropagation?.(); toggleFavorite() }}>
 
-        <FavoriteIcon source={require('@/assets/favorite.png')} style={{opacity: isFavorite === true ? 1:0.2}}/>
-      </FavoriteIconContainer>
+        <SC.FavoriteIcon source={require('@/assets/favorite.png')} style={{opacity: isFavorite === true ? 1:0.2}}/>
+      </SC.FavoriteIconContainer>
 
-      <AlunoContainer>
-        <Title>{aluno.name}</Title>
-        <Info>{aluno.age} anos</Info>
-        <Info>Turma {aluno.class}</Info>
-      </AlunoContainer>
+      <SC.AlunoContainer>
+        <SC.Title>{aluno.name}</SC.Title>
+        <SC.Info>{aluno.age} anos</SC.Info>
+        <SC.Info>Turma {aluno.class}</SC.Info>
+      </SC.AlunoContainer>
     </Card>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@/components/Card';
 import { Observation } from '@/types/types';
-import { Title, Info, Container } from './styles';
+import * as SC from './styles';
 
 interface ObservationCardProps {
   obs: Observation;
@@ -14,10 +14,10 @@ export default function ObservationCard({ obs, onPress, onDelete }: ObservationC
   const customStyle = {backgroundColor: 'white', borderColor: '#00000011'};
 
   return (
-    <Card onPress={onPress} onDelete={onDelete} style={customStyle}>
-      <Container>
-        <Title>{obs?.text}</Title>
-        <Info>
+    <Card onPress={onPress} onDelete={onDelete} style={customStyle} testID="card">
+      <SC.Container>
+        <SC.Title>{obs?.text}</SC.Title>
+        <SC.Info>
           Observação registrada no dia{' '}
           {obs?.date
             ? new Date(obs.date).toLocaleDateString('pt-BR', {
@@ -26,8 +26,8 @@ export default function ObservationCard({ obs, onPress, onDelete }: ObservationC
                 year: 'numeric',
               })
             : '-'}
-        </Info>
-      </Container>
+        </SC.Info>
+      </SC.Container>
     </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import api from '@/services/api';
 import * as Sentry from '@sentry/react-native';
 
@@ -19,7 +19,6 @@ interface PaginatedResponse<T = any> {
 export function useRequest<T extends WithId>(collection: CollectionName) {
   const [items, setItems] = useState<T[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -33,9 +32,8 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
       setItems(res.data.data);
       setCurrentPage(1);
       setLastPage(res.data.last);
-      setError(null);
     } catch {
-      setError(`Erro ao carregar ${collection}`);
+      console.error(`Erro ao carregar ${collection}`);
       Sentry.captureException(new Error('Error fetching all items'));
     } finally {
       setLoading(false);
@@ -46,10 +44,9 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     setLoading(true);
     try {
       const res = await api.get<T>(`/${collection}/${id}`);
-      setError(null);
       return res.data;
     } catch {
-      setError(`Erro ao carregar ${collection} pelo id`);
+      console.error(`Erro ao carregar ${collection} pelo id`);
       Sentry.captureException(new Error(`Error fetching ${collection} by id`));
       return null;
     } finally {
@@ -57,7 +54,7 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     }
   }
 
-  async function fetchByKey(id: number, key?: string) {
+  async function fetchByKey(id: any, key?: string) {
   setLoading(true);
   try {
     const url = key 
@@ -65,11 +62,10 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
       : `/${collection}/${id}`;
 
     const res = await api.get<T | T[]>(url);
-
-    setError(null);
     return res.data;
+
   } catch {
-    setError(`Erro ao carregar ${collection}`);
+    console.error(`Erro ao carregar ${collection}`);
     Sentry.captureException(new Error(`Error fetching ${collection}`));
     return null;
   } finally {
@@ -82,9 +78,8 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     try {
       const res = await api.post<T>(`/${collection}`, item);
       setItems(prev => [...prev, res.data]);
-      setError(null);
     } catch {
-      setError(`Erro ao adicionar em ${collection}`);
+      console.error(`Erro ao adicionar em ${collection}`);
       Sentry.captureException(new Error('Error adding item'));
     } finally {
       setLoading(false);
@@ -96,9 +91,8 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     try {
       const res = await api.patch<T>(`/${collection}/${id}`, item);
       setItems(prev => prev.map(i => (i.id === id ? res.data : i)));
-      setError(null);
     } catch {
-      setError(`Erro ao atualizar ${collection}`);
+      console.error(`Erro ao atualizar ${collection}`);
       Sentry.captureException(new Error('Error updating item'));
     } finally {
       setLoading(false);
@@ -110,9 +104,8 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
     try {
       await api.delete(`/${collection}/${id}`);
       setItems(prev => prev.filter(i => !(i.id === id)));
-      setError(null);
     } catch {
-      setError(`Erro ao deletar de ${collection}`);
+      console.error(`Erro ao deletar de ${collection}`);
       Sentry.captureException(new Error('Error removing item'));
     } finally {
       setLoading(false);
@@ -144,7 +137,6 @@ export function useRequest<T extends WithId>(collection: CollectionName) {
   return {
     items,
     loading,
-    error,
     fetchAll,
     fetchById,
     fetchByKey,

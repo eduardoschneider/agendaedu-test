@@ -2,26 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { StackScreenNavigationProp } from '@/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest } from '@/store/professor/professorSlice';
-import {
-  Container,
-  BackgroundGradient,
-  Logo,
-  Title,
-  Input,
-  Button,
-  ButtonText,
-  Cadastro,
-  CadastroText,
-  Subtitle,
-} from './styles';
+import * as SC from './styles';
 import { RootState } from '@/store/store';
 import AppText from '@/components/AppText';
 
-export default function Login({
-  navigation,
-}: {
-  navigation: StackScreenNavigationProp<'Login'>;
-}) {
+export default function Login({ navigation }: { navigation: StackScreenNavigationProp<'Login'> }) {
   const [email, setEmail] = useState('edu.schneiders@gmail.com');
   const [password, setPassword] = useState('123456');
 
@@ -41,17 +26,14 @@ export default function Login({
   }, [data]);
 
   return (
-    <Container>
-      <BackgroundGradient
-        source={require('@/assets/login-background.jpg')}
-        resizeMode="cover"
-      >
-        <Logo></Logo>
+    <SC.Container>
+      <SC.BackgroundGradient source={require('@/assets/login-background.jpg')} resizeMode="cover">
+        <SC.Logo></SC.Logo>
 
-        <Title>Bem-vindo</Title>
-        <Subtitle>Faça o login para continuar.</Subtitle>
+        <SC.Title>Bem-vindo</SC.Title>
+        <SC.Subtitle>Faça o login para continuar.</SC.Subtitle>
 
-        <Input
+        <SC.Input
           placeholder="Digite seu e-mail..."
           keyboardType="email-address"
           autoCapitalize="none"
@@ -59,22 +41,22 @@ export default function Login({
           onChangeText={setEmail}
         />
 
-        <Input
+        <SC.Input
           placeholder="Digite sua senha..."
           secureTextEntry
           value={password}
           onChangeText={setPassword}
         />
 
-        <Button onPress={handleLogin}>
-          <ButtonText>Login</ButtonText>
-        </Button>
+        <SC.Button onPress={handleLogin}>
+          <SC.ButtonText>Login</SC.ButtonText>
+        </SC.Button>
 
-        <Cadastro onPress={() => navigation.navigate('Cadastro')}>
+        <SC.Cadastro onPress={() => navigation.navigate('Cadastro')}>
           <AppText>Não tem cadastro ainda? </AppText>
-          <CadastroText>Clique aqui</CadastroText>
-        </Cadastro>
-      </BackgroundGradient>
-    </Container>
+          <SC.CadastroText>Clique aqui</SC.CadastroText>
+        </SC.Cadastro>
+      </SC.BackgroundGradient>
+    </SC.Container>
   );
 }

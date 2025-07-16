@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler/jestSetup';
 
-// mock navigation para não quebrar
 jest.mock('@react-navigation/native', () => {
   return {
     ...jest.requireActual('@react-navigation/native'),
@@ -11,7 +10,6 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
-// mock gesture handler
 jest.mock('react-native-gesture-handler', () => {
   return {
     Swipeable: jest.fn().mockImplementation(({ children }) => children),

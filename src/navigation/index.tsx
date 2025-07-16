@@ -1,9 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 import Login from '@/screens/Login';
 import Dashboard from '@/screens/Dashboard';
@@ -15,8 +11,8 @@ type RootStackParamList = {
   Login: undefined;
   Cadastro: undefined;
   Dashboard: undefined;
-  AlunosHandler?: { id?: number };
-  ObservacoesHandler?: { id?: number; studentId?: number, onSave?: (text:string, id?: number) => void };
+  AlunosHandler: { id?: number };
+  ObservacoesHandler: { id?: number; studentId?: number, onSave?: (text:string, id?: number) => void };
 };
 
 export type StackScreenNavigationProp<T extends keyof RootStackParamList> =

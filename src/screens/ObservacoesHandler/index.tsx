@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Alert } from 'react-native';
-import {
-  Container,
-  Input,
-  Label,
-  ButtonText,
-  SaveButton,
-  GuideContainer,
-  GuideLabel,
-  Title,
-} from './styles';
+import * as SC from './styles';
 import { Observation } from '@/types/types';
 import { useRequest } from '@/hooks/useRequest';
 import { StackScreenNavigationRouteProps } from '@/navigation';
 
-export default function ObservacoesHandler({
-  navigation,
-  route,
-}: StackScreenNavigationRouteProps<'ObservacoesHandler'>) {
+export default function ObservacoesHandler({ navigation, route }: StackScreenNavigationRouteProps<'ObservacoesHandler'>) {
   const { id, studentId, onSave } = route.params || {};
 
   const { fetchById, update, add } = useRequest<Observation>('observations');
@@ -78,15 +66,15 @@ export default function ObservacoesHandler({
   }, []);
 
   return (
-    <Container>
-      <Title>Como escrever uma observação</Title>
-      <GuideContainer>
+    <SC.Container>
+      <SC.Title>Como escrever uma observação</SC.Title>
+      <SC.GuideContainer>
         {guideTexts.map((text, idx) => (
-          <GuideLabel key={idx}>{text}</GuideLabel>
+          <SC.GuideLabel key={idx}>{text}</SC.GuideLabel>
         ))}
-      </GuideContainer>
-      <Label>Observação</Label>
-      <Input
+      </SC.GuideContainer>
+      <SC.Label>Observação</SC.Label>
+      <SC.Input
         value={form.text}
         onChangeText={text => handleChange('text', text)}
         placeholder="Digite sua observação"
@@ -94,9 +82,9 @@ export default function ObservacoesHandler({
         numberOfLines={4}
         style={{ height: '50%' }}
       />
-      <SaveButton onPress={handleSubmit}>
-        <ButtonText>Salvar</ButtonText>
-      </SaveButton>
-    </Container>
+      <SC.SaveButton onPress={handleSubmit}>
+        <SC.ButtonText>Salvar</SC.ButtonText>
+      </SC.SaveButton>
+    </SC.Container>
   );
 }

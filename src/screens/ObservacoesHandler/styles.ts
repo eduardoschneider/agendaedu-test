@@ -20,8 +20,8 @@ export const Label = styled(AppText)`
 `;
 
 export const Input = styled.TextInput`
-  height: 50px;
   border-width: 1px;
+  text-align-vertical: top;
   border-color: #ccc;
   background-color: white;
   border-radius: 8px;

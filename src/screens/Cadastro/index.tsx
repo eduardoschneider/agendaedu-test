@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Alert, Text } from 'react-native';
 import { StackScreenNavigationProp } from '@/navigation';
-import {
-  Container,
-  BackgroundGradient,
-  Logo,
-  Title,
-  Input,
-  Button,
-  ButtonText,
-  CadastroContainer,
-  CadastroText,
-  Subtitle,
-} from './styles';
+import * as SC from './styles';
 import { useRequest } from '@/hooks/useRequest';
 import { Professor } from '@/types/types';
 
 export default function Cadastro({navigation}: {navigation: StackScreenNavigationProp<'Login'>;}) {
 
-  const [name, setName] = useState('a');
-  const [email, setEmail] = useState('a');
-  const [bio, setBio] = useState('a');
-  const [password, setPassword] = useState('a');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [bio, setBio] = useState('');
+  const [password, setPassword] = useState('');
 
   const { add } = useRequest<Professor>('professors');
 
@@ -43,17 +32,17 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
   };
 
   return (
-    <Container>
-      <BackgroundGradient
+    <SC.Container>
+      <SC.BackgroundGradient
         source={require('@/assets/login-background.jpg')}
         resizeMode="cover"
       >
-        <Logo></Logo>
+        <SC.Logo></SC.Logo>
 
-        <Title>Vamos fazer seu cadastro</Title>
-        <Subtitle>Preencha os campos abaixo para continuar.</Subtitle>
+        <SC.Title>Vamos fazer seu cadastro</SC.Title>
+        <SC.Subtitle>Preencha os campos abaixo para continuar.</SC.Subtitle>
 
-        <Input
+        <SC.Input
           placeholder="Prencha seu nome..."
           keyboardType="default"
           autoCapitalize="none"
@@ -61,7 +50,7 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
           onChangeText={setName}
         />
 
-        <Input
+        <SC.Input
           placeholder="Preencha seu e-mail..."
           keyboardType="email-address"
           autoCapitalize="none"
@@ -69,7 +58,7 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
           onChangeText={setEmail}
         />
 
-        <Input
+        <SC.Input
           placeholder="Diga um pouco sobre você..."
           keyboardType="default"
           autoCapitalize="none"
@@ -77,22 +66,22 @@ export default function Cadastro({navigation}: {navigation: StackScreenNavigatio
           onChangeText={setBio}
         />
 
-        <Input
+        <SC.Input
           placeholder="Digite sua senha..."
           secureTextEntry
           value={password}
           onChangeText={setPassword}
         />
 
-        <Button onPress={handleCadastro}>
-          <ButtonText>Cadastrar</ButtonText>
-        </Button>
+        <SC.Button onPress={handleCadastro}>
+          <SC.ButtonText>Cadastrar</SC.ButtonText>
+        </SC.Button>
 
-        <CadastroContainer onPress={() => navigation.goBack()}>
+        <SC.CadastroContainer onPress={() => navigation.goBack()}>
           <Text>Já tem login?</Text>
-          <CadastroText> Clique aqui</CadastroText>
-        </CadastroContainer>
-      </BackgroundGradient>
-    </Container>
+          <SC.CadastroText> Clique aqui</SC.CadastroText>
+        </SC.CadastroContainer>
+      </SC.BackgroundGradient>
+    </SC.Container>
   );
 }
