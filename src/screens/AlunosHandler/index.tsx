@@ -21,6 +21,7 @@ export default function AlunosHandler({
   navigation,
   route,
 }: StackScreenNavigationRouteProps<'AlunosHandler'>) {
+  
   const { id } = route.params || {};
 
   const { fetchById, update, add } = useRequest<Student>('students');
