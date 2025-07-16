@@ -11,7 +11,7 @@ describe('AlunoCard', () => {
     class: '1A',
   };
 
-  it('renders student info correctly', () => {
+  it('verifica se o estudante foi renderizado corretamente', () => {
     const { getByText } = render(
       <AlunoCard aluno={mockStudent} toggleFavorite={() => {}} />
     );
@@ -21,7 +21,7 @@ describe('AlunoCard', () => {
     expect(getByText('Turma 1A')).toBeTruthy();
   });
 
-  it('calls toggleFavorite when heart is pressed', () => {
+  it('chama o toggleFavorite quando clica para favoritar', () => {
     const toggleFavorite = jest.fn();
     const { getByTestId } = render(
       <AlunoCard aluno={mockStudent} toggleFavorite={toggleFavorite} />
@@ -31,7 +31,7 @@ describe('AlunoCard', () => {
     expect(toggleFavorite).toHaveBeenCalled();
   });
 
-  it('calls onPress when card is pressed', () => {
+  it('chama o clique do card', () => {
     const onPress = jest.fn();
     const { getByTestId } = render(
       <AlunoCard aluno={mockStudent} toggleFavorite={() => {}} onPress={onPress} />
@@ -41,7 +41,7 @@ describe('AlunoCard', () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it('shows full opacity when isFavorite is true', () => {
+  it('mostra a bandeira colorida quando é favorito', () => {
     const { getByTestId } = render(
       <AlunoCard aluno={mockStudent} toggleFavorite={() => {}} isFavorite />
     );

@@ -31,17 +31,17 @@ describe('Login Screen (integração)', () => {
       <Login navigation={navigationMock as any} />
     );
 
-    fireEvent.changeText(getByPlaceholderText('Digite seu e-mail...'), 'u@e.com');
-    fireEvent.changeText(getByPlaceholderText('Digite sua senha...'), '1234');
+    fireEvent.changeText(getByPlaceholderText('Digite seu e-mail...'), 'edu.schneiders@gmail.com');
+    fireEvent.changeText(getByPlaceholderText('Digite sua senha...'), '123456');
     fireEvent.press(getByText('Login'));
 
     expect(loginRequest).toHaveBeenCalledWith({
-      email: 'u@e.com',
-      password: '1234',
+      email: 'edu.schneiders@gmail.com',
+      password: '123456',
     });
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'LOGIN_REQUEST',
-      payload: { email: 'u@e.com', password: '1234' },
+      payload: { email: 'edu.schneiders@gmail.com', password: '123456' },
     });
   });
 
